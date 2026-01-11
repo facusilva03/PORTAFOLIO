@@ -1,34 +1,18 @@
-
 // src/App.jsx
-
-import React from 'react';
-// Aquí pondremos estilos o librerías que necesitemos
+import Sidebar from './components/Sidebar';
+import Hero from './sections/Hero';
 
 function App() {
   return (
-    // <> y </> son Fragments, que permiten devolver múltiples elementos
-    // sin crear un <div> extra en el DOM.
-    <> 
-        {/* Componente Header */}
-        <header className="fixed w-full z-10">
-            {/* Aquí irá el menú de navegación (Inicio, Proyectos, Contacto) */}
-        </header>
+    <div className="flex min-h-screen bg-white font-sans">
+      {/* Barra lateral fija: 20% del ancho aprox */}
+      <Sidebar />
 
-        {/* Componente Main (donde se carga el contenido) */}
-        <main>
-            {/* 💥 Componente Hero (Tu presentación) 💥 */}
-            <section className="h-screen flex items-center justify-center bg-gray-100">
-                <h1>Hola, soy Facundo Silva. Desarrollador Web.</h1>
-            </section>
-        </main>
-
-        {/* Componente Footer */}
-        <footer>
-            <div className="text-center py-4 bg-gray-800 text-white">
-                &copy; {new Date().getFullYear()} Facundo Silva.
-            </div>
-        </footer>
-    </>
+      {/* Contenido principal: 80% del ancho */}
+      <main className="flex-1 ml-[20%] relative">
+        <Hero />
+      </main>
+    </div>
   );
 }
 
