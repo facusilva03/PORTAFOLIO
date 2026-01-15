@@ -1,15 +1,13 @@
-// src/App.jsx
-import Sidebar from './components/Sidebar';
-import Hero from './sections/Hero';
+import Sidebar from './components/sidebar';
+import './index.css';
+import Hero from './sections/hero.jsx';
 
 function App() {
   return (
-    <div className="flex min-h-screen bg-white font-sans">
-      {/* Barra lateral fija: 20% del ancho aprox */}
+    <div className="app-root">
       <Sidebar />
 
-      {/* Contenido principal: 80% del ancho */}
-      <main className="flex-1 ml-[20%] relative">
+      <main className="main-content">
         <Hero />
       </main>
     </div>

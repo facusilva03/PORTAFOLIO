@@ -1,12 +1,33 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Añade aquí tus estilos globales o utilidades personalizadas */
+/* Global CSS (sin Tailwind) */
 html, body, #root {
-	height: 100%;
+  height: 100%;
+  margin: 0;
 }
 body {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #ffffff;
+  color: #0a0a0a;
+  box-sizing: border-box;
 }
+
+/* Layout helpers usados por App.jsx */
+.app-root {
+  display: flex;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #0a0a0a;
+}
+.main-content {
+  flex: 1;
+  margin-left: 20%;
+  padding: 2.5rem; /* equiv a p-10 */
+  box-sizing: border-box;
+}
+
+/* Pequeñas utilidades (fallbacks) */
+.bg-portfolio-dark { background-color: #0a0a0a !important; }
+.text-portfolio-dark { color: #0a0a0a !important; }
+.text-portfolio-accent { color: #ff5e1a !important; }
+.border-portfolio-accent { border-color: #ff5e1a !important; }

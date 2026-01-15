@@ -1,0 +1,59 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 20%;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem;
+  z-index: 50;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  font-size: .875rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.accent {
+  color: #942dad;
+  border-bottom: 2px solid #942dad;
+  display: inline-block;
+}
+
+.hoverAccent {
+  cursor: pointer;
+  transition: color .15s ease;
+}
+.hoverAccent:hover { color: #942dad; }
+
+.footer {
+  font-size: .75rem;
+  color: #9ca3af;
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.125rem;
+  color: #ffffff;
+}
