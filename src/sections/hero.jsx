@@ -33,6 +33,11 @@ const Hero = () => {
             </div>
 
             <div className={styles.socialBar}>
+
+                <div className={styles.socialLine}></div>
+
+
+
                 <a href="https://www.instagram.com/facu_silva/" target='_blank' className={styles.socialIcon}>
                     <FaInstagram />
                 </a>
