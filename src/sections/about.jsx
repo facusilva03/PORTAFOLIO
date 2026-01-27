@@ -59,6 +59,9 @@ const About = () => {
 
 </div>
 
+<hr className={styles.divider} />
+
+{/* Estadísticas */}
 
 
 
@@ -92,3 +95,4 @@ const About = () => {
 
 
     )
+};
