@@ -50,49 +50,44 @@ const About = () => {
     </div>
 
 
-
-
-
-
-
-
-
-</div>
-
 <hr className={styles.divider} />
-
 {/* Estadísticas */}
 
+<div className={styles.statsGrid}>
+    <div className={styles.statItem}>
+        <span className={styles.statNumber}>2+</span>
+        <span className={styles.statLabel}>Years <br />experience...</span>
+    </div>
+    <div className={styles.statItem}>
+        <span className={styles.statNumber}>5+</span>
+        <span className={styles.statLabel}>Projects <br />completed...</span>
+    </div>
+</div>
 
+{/* Biografía */}
+<p className={styles.bioTexto}>
+Hola! Soy Facundo Silva, un desarrollador apasionado por crear soluciones digitales 
+que combinan diseño y funcionalidad. Me especializo en el desarrollo web completo, 
+desde la base de datos hasta la interfaz de usuario. Siempre buscando aprender 
+nuevas tecnologías para llevar mis proyectos al siguiente nivel.
+</p>
 
+{/* Caja de Cita (Quote) */}
 
+<div className={styles.quoteBox}>
+  <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia, ratione iure? Ducimus mollitia beatae eaque maxime excepturi aperiam magni adipisci iste, dolorum vitae modi eius, placeat debitis error ipsam illum!
+  </p>
 
+</div>
 
-
-
-
+</div>
 
 </div>
 
 
-
-
-        </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    )
+</section>
+    );
 };
+
+export default About;

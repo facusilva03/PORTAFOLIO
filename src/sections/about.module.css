@@ -1,0 +1,8 @@
+.aboutSection {
+    display: flex;
+    padding: 100px 5% 100px 15%;
+    background-color: #ffffff;
+    min-height: 100vh;
+    gap: 80px;
+    font-family: "Arial", sans-serif;
+}
