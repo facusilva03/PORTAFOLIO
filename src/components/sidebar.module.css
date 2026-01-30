@@ -1,3 +1,4 @@
+/* sidebar.module.css */
 .sidebar {
   position: fixed;
   top: 0;
@@ -21,30 +22,38 @@
 }
 
 .navList {
-  list-style: none;
+  list-style: none; /* Esto quita los puntitos */
   padding: 0;
   margin: 0;
 }
 
 .navItem {
+  margin-bottom: 1.5rem;
+  /* El color se lo daremos al enlace directamente */
+}
+
+
+
+.navAnchor {
+  text-decoration: none; /* Adiós subrayado */
+  color: #ffffff;        /* Hola blanco */
   text-transform: uppercase;
   letter-spacing: .25em;
   font-size: .875rem;
-  margin-bottom: 1.5rem;
-  color: #ffffff;
+  transition: color .15s ease;
+  display: inline-block; /* Necesario para el borde del activo */
 }
 
-.accent {
+/* Efecto Hover */
+.navAnchor:hover {
+  color: #942dad; /* Violeta al pasar el mouse */
+}
+
+/* Estado Activo (Para el HOME) */
+.active {
   color: #942dad;
   border-bottom: 2px solid #942dad;
-  display: inline-block;
 }
-
-.hoverAccent {
-  cursor: pointer;
-  transition: color .15s ease;
-}
-.hoverAccent:hover { color: #942dad; }
 
 .footer {
   font-size: .75rem;

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./about.module.css";
-import photoprofile from "../assets/photo-profile.jpg";
+import photoprofile from '../assets/about.jpg';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaCalendarAlt, FaDownload } from "react-icons/fa";
 
 const About = () => {
@@ -65,7 +65,7 @@ const About = () => {
 </div>
 
 {/* Biografía */}
-<p className={styles.bioTexto}>
+<p className={styles.bioText}>
 Hola! Soy Facundo Silva, un desarrollador apasionado por crear soluciones digitales 
 que combinan diseño y funcionalidad. Me especializo en el desarrollo web completo, 
 desde la base de datos hasta la interfaz de usuario. Siempre buscando aprender 

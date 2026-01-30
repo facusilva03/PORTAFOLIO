@@ -5,7 +5,7 @@ import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Hero = () => {
     return (
-        <section className={styles.heroContainer}>
+        <section className={styles.heroContainer} id="home">
 
             <div className={styles.content}>
                 <p className={styles.introText}>MY NAME IS </p>

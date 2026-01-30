@@ -1,6 +1,7 @@
 import Sidebar from './components/sidebar';
 import './index.css';
-import Hero from './sections/hero.jsx';
+import Hero from './sections/Hero.jsx';
+import About from './sections/About.jsx';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
 
       <main className="main-content">
         <Hero />
+        <About />
       </main>
     </div>
   );

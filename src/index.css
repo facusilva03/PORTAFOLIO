@@ -1,4 +1,7 @@
 /* Global CSS (sin Tailwind) */
+html {
+  scroll-behavior: smooth;
+}
 html, body, #root {
   height: 100%;
   margin: 0;

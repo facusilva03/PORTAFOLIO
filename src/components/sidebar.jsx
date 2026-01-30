@@ -10,19 +10,52 @@ const Sidebar = () => {
 
       <nav>
         <ul className={styles.navList}>
-          <li className={`${styles.navItem} ${styles.accent}`}>Home</li>
-          <li className={`${styles.navItem} ${styles.hoverAccent}`}>About</li>
-          <li className={`${styles.navItem} ${styles.hoverAccent}`}>Services</li>
-          <li className={`${styles.navItem} ${styles.hoverAccent}`}>Works</li>
-          <li className={`${styles.navItem} ${styles.hoverAccent}`}>Blogs</li>
-          <li className={`${styles.navItem} ${styles.hoverAccent}`}>Contact</li>
+          
+          
+          <li className={styles.navItem}>
+            <a href="#home" className={`${styles.navAnchor} ${styles.active}`}>
+              Home
+            </a>
+          </li>
+
+          
+          <li className={styles.navItem}>
+            <a href="#about" className={styles.navAnchor}>
+              About
+            </a>
+          </li>
+
+          <li className={styles.navItem}>
+            <a href="#services" className={styles.navAnchor}>
+              Services
+            </a>
+          </li>
+
+          <li className={styles.navItem}>
+            <a href="#works" className={styles.navAnchor}>
+              Works
+            </a>
+          </li>
+
+          <li className={styles.navItem}>
+            <a href="#blogs" className={styles.navAnchor}>
+              Blogs
+            </a>
+          </li>
+
+          <li className={styles.navItem}>
+            <a href="#contact" className={styles.navAnchor}>
+              Contact
+            </a>
+          </li>
+
         </ul>
       </nav>
 
       <div className={styles.footer}>
         <div className={styles.social}>
-          <span className={styles.hoverAccent}>Be</span>
-          <span className={styles.hoverAccent}>In</span>
+          <span>Be</span>
+          <span>In</span>
         </div>
         <p>Copyright ©2026 Facundo Silva. All rights reserved.</p>
       </div>
