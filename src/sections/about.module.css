@@ -3,7 +3,7 @@
     padding: 100px 5% 100px 15%; /* Mucho espacio a la izquierda para el Sidebar */
     background-color: #ffffff;
     min-height: 100vh;
-    gap: 80px;  /* Separación entre las dos columnas grandes */
+    gap: 100px;  /* Separación entre las dos columnas grandes */
     font-family: "Arial", sans-serif;
 
 }
@@ -25,9 +25,9 @@
 
 .tittle{
     font-size: 2rem;
-    font-weight: 900;
+    font-weight: 700;
     color: black;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .imageWrapper{
@@ -93,25 +93,34 @@
     display: grid;
     grid-template-columns: 1fr 1fr; /* Dos columnas */
     gap: 40px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .contacItem{
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
+    margin-bottom: 25px;
     color: #555;
+    font-weight: 500;
     font-size: 1rem;
 }
 
 .icon {
-    color: #5a008a; /* Violeta */
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+
+    border-radius: 50px;
     font-size: 1.5rem;
-    background-color: #f3e6fa;
-    padding: 8px;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+
 }
 
 .divider{

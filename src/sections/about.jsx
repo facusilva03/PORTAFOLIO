@@ -34,20 +34,36 @@ const About = () => {
 {/* Grilla de Datos de Contacto */}
 
 
+
 <div className={styles.contactGrid}>
-    <div className={styles.contactItem}>
-        <FaPhoneAlt className={styles.icon}/> <span>+54 261 615 2411</span>
-        
+  <div className={styles.contactItem}>
+    <div className={styles.iconWrapper}>
+      <FaPhoneAlt />
     </div>
-    <div className={styles.contactItem}>
-        <FaEnvelope className={styles.icon}/> <span>facusilva2003@gmail.com</span>
+    <span className={styles.contactText}>+54 261 615 2411</span>
+  </div>
+  
+  <div className={styles.contactItem}>
+    <div className={styles.iconWrapper}>
+      <FaCalendarAlt />
     </div>
-    <div className={styles.contactItem}>
-        <FaMapMarkerAlt className={styles.icon}/> <span>Mendoza, Argentina</span>
+    <span className={styles.contactText}>22 years</span>
+  </div>
+
+  
+  <div className={styles.contactItem}>
+    <div className={styles.iconWrapper}>
+      <FaEnvelope />
     </div>
-    <div className={styles.contactItem}>
-        <FaCalendarAlt className={styles.icon}/> <span>22 years</span>
+    <span className={styles.contactText}>facusilva2003@gmail.com</span>
+  </div>
+  <div className={styles.contactItem}>
+    <div className={styles.iconWrapper}>
+      <FaMapMarkerAlt />
     </div>
+    <span className={styles.contactText}>Mendoza, Argentina</span>
+  </div>
+</div>
 
 
 <hr className={styles.divider} />
@@ -83,7 +99,6 @@ nuevas tecnologías para llevar mis proyectos al siguiente nivel.
 
 </div>
 
-</div>
 
 
 </section>
