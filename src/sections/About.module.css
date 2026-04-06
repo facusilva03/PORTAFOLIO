@@ -1,0 +1,313 @@
+/* ─────────────────────────────────────────
+   SECCIÓN ABOUT — fondo oscuro
+───────────────────────────────────────── */
+.aboutSection {
+    padding: 80px 6%;
+    /* Fondo oscuro consistente con el boceto */
+    background-color: #0d0d0d;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* ─── ENCABEZADO ─── */
+.sectionHeader {
+    margin-bottom: 36px;
+}
+
+.eyebrow {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: #942dad;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+/*
+  El ::after crea la línea horizontal que completa el título.
+  En fondo oscuro usamos un gris más oscuro para que no sea
+  demasiado contrastante.
+*/
+.sectionTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.sectionTitle::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: #2a2a2a;
+}
+
+/* ─── LAYOUT ─── */
+.columns {
+    display: flex;
+    gap: 0;
+    background: #161616;
+    border: 1px solid #242424;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* ─── COLUMNA IZQUIERDA ─── */
+.colLeft {
+    flex: 0 0 280px;
+    padding: 32px 28px;
+    border-right: 1px solid #242424;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: #5a008a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3px;
+}
+
+.role {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #942dad;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* Separador sutil entre bloques de la columna izquierda */
+.leftDivider {
+    width: 100%;
+    height: 1px;
+    background-color: #242424;
+    margin: 16px 0;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    color: #888888;
+    font-weight: 400;
+}
+
+.contactIcon {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    background-color: #1e1e1e;
+    border: 1px solid #2e2e2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #942dad;
+    flex-shrink: 0;
+}
+
+/*
+  Bloque de redes sociales: mismo patrón que contactItem
+  pero con el nombre de la red como label y hover que
+  ilumina el ícono — da feedback visual sin ser llamativo.
+*/
+.socialItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+    color: #888888;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.socialItem:hover {
+    color: #ffffff;
+}
+
+.socialItem:hover .contactIcon {
+    background-color: #2a0a3a;
+    border-color: #5a008a;
+    color: #bb44ee;
+}
+
+.cvBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #5a008a;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 10px 20px;
+    border-radius: 40px;
+    text-decoration: none;
+    margin-top: 6px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    letter-spacing: 0.3px;
+}
+
+.cvBtn:hover {
+    background-color: #45006a;
+    transform: translateY(-2px);
+}
+
+/* ─── COLUMNA DERECHA ─── */
+.colRight {
+    flex: 1;
+    padding: 32px 36px;
+}
+
+.statsRow {
+    display: flex;
+    gap: 36px;
+    margin-bottom: 20px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.statNum {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #942dad;
+    line-height: 1;
+}
+
+.statLbl {
+    font-size: 0.65rem;
+    color: #555555;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/*
+  Bio: gap reducido a 8px — los párrafos quedan juntos
+  pero todavía con respiración entre ellos.
+  Antes era 12px, que los separaba demasiado.
+*/
+.bio {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.bio p {
+    font-size: 0.88rem;
+    color: #aaaaaa;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #242424;
+    margin: 20px 0;
+}
+
+/* ─── TIMELINE ─── */
+.timelineTitle {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 16px;
+}
+
+.timelineItem {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.tlLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4px;
+    flex-shrink: 0;
+}
+
+.tlDot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #5a008a;
+    flex-shrink: 0;
+}
+
+.tlLine {
+    width: 1.5px;
+    flex: 1;
+    background-color: #2a2a2a;
+    margin-top: 4px;
+    min-height: 20px;
+}
+
+.tlBody {
+    padding-bottom: 6px;
+}
+
+.tlDegree {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+.tlSchool {
+    font-size: 0.78rem;
+    color: #942dad;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.tlDate {
+    font-size: 0.7rem;
+    color: #555555;
+    font-weight: 400;
+}
+
+/* ─── QUOTE BOX ─── */
+.quoteBox {
+    background-color: #0a0a0a;
+    color: #666666;
+    padding: 16px 20px;
+    border-left: 3px solid #5a008a;
+    border-radius: 0;
+    font-size: 0.85rem;
+    font-style: italic;
+    line-height: 1.65;
+    margin-top: 20px;
+    font-family: 'Space Grotesk', sans-serif;
+}

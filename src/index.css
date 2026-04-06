@@ -1,4 +1,3 @@
-/* Global CSS (sin Tailwind) */
 html {
   scroll-behavior: smooth;
 }
@@ -9,28 +8,25 @@ html, body, #root {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   background: #ffffff;
   color: #0a0a0a;
   box-sizing: border-box;
 }
 
-/* Layout helpers usados por App.jsx */
 .app-root {
   display: flex;
   min-height: 100vh;
   background: #ffffff;
   color: #0a0a0a;
 }
+
 .main-content {
   flex: 1;
-  margin-left: 20%;
-  padding: 2.5rem; /* equiv a p-10 */
+  /*
+    80px coincide exactamente con el width de la sidebar.
+    Si cambiás el ancho de la sidebar, cambiá este valor también.
+  */
+  margin-left: 80px;
   box-sizing: border-box;
 }
-
-/* Pequeñas utilidades (fallbacks) */
-.bg-portfolio-dark { background-color: #0a0a0a !important; }
-.text-portfolio-dark { color: #0a0a0a !important; }
-.text-portfolio-accent { color: #ff5e1a !important; }
-.border-portfolio-accent { border-color: #ff5e1a !important; }

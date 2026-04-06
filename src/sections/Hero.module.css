@@ -1,0 +1,196 @@
+/* ─────────────────────────────────────────
+   SECCIÓN HERO — sidebar delgada 80px
+   Área disponible en 1080p ≈ 1290px
+───────────────────────────────────────── */
+.heroContainer {
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*
+      Con sidebar de 80px el área disponible es ≈1290px.
+      Padding generoso a ambos lados para que nada quede
+      pegado a los bordes. Derecho menor por la barra social.
+    */
+    padding: 0 110px 0 6%;
+    font-family: 'Space Grotesk', sans-serif;
+    overflow: hidden;
+    position: relative;
+    background-color: #ffffff;
+}
+
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeSlideRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+
+/* ─── COLUMNA IZQUIERDA: texto ─── */
+
+.content {
+    flex: 0 0 auto;
+    text-align: left;
+    z-index: 2;
+}
+
+.introText {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #5a008a;
+    margin-bottom: 20px;
+    animation: fadeSlideUp 0.7s ease both;
+    animation-delay: 0.1s;
+}
+
+/*
+  Con 1290px disponibles y la foto ocupando ~416px + gaps,
+  el texto tiene ≈720px. "FACUNDO" en Space Grotesk 900 a 7.5rem
+  ocupa ≈680px — llena bien sin desbordarse.
+*/
+.name {
+    font-size: 7.5rem;
+    font-weight: 900;
+    line-height: 0.92;
+    color: #000000;
+    margin: 0;
+    animation: fadeSlideUp 0.7s ease both;
+    animation-delay: 0.3s;
+}
+
+.lastName {
+    display: block;
+    color: #5a008a;
+    animation: fadeSlideUp 0.7s ease both;
+    animation-delay: 0.55s;
+}
+
+.description {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #444444;
+    max-width: 440px;
+    line-height: 1.65;
+    margin-top: 24px;
+    margin-bottom: 36px;
+    animation: fadeSlideUp 0.7s ease both;
+    animation-delay: 0.75s;
+}
+
+.ctaButton {
+    display: inline-block;
+    margin-bottom: 28px;
+    background-color: #5a008a;
+    color: #fff;
+    padding: 15px 46px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: 'Space Grotesk', sans-serif;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(90, 0, 138, 0.25);
+    animation: fadeSlideUp 0.7s ease both;
+    animation-delay: 0.9s;
+}
+
+.ctaButton:hover {
+    transform: translateY(-4px) scale(1.04);
+    background-color: #45006a;
+    box-shadow: 0 12px 28px rgba(90, 0, 138, 0.4);
+}
+
+.contactInfo {
+    display: flex;
+    gap: 32px;
+    font-size: 0.85rem;
+    color: #666666;
+    font-weight: 400;
+    animation: fadeSlideUp 0.7s ease both;
+    animation-delay: 1.05s;
+}
+
+
+/* ─── COLUMNA DERECHA: foto con efecto offset ─── */
+
+.imageContainer {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeSlideRight 0.9s ease both;
+    animation-delay: 0.35s;
+}
+
+/* 400×530px → proporción 3:4, ideal para retrato de medio cuerpo */
+.offsetWrap {
+    position: relative;
+    width: 416px;
+    height: 546px;
+}
+
+.offsetBorder {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 400px;
+    height: 530px;
+    border: 2.5px solid #5a008a;
+    border-radius: 0;
+    z-index: 1;
+}
+
+.offsetPhoto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 530px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 0;
+    z-index: 2;
+}
+
+
+/* ─── BARRA SOCIAL ─── */
+
+.socialBar {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    align-items: center;
+    animation: fadeSlideUp 0.7s ease both;
+    animation-delay: 1.15s;
+}
+
+.socialIcon {
+    font-size: 1.25rem;
+    color: #555555;
+    transition: color 0.3s, transform 0.3s;
+    display: flex;
+    text-decoration: none;
+}
+
+.socialIcon:hover {
+    color: #5a008a;
+    transform: scale(1.2);
+}
+
+.socialLine {
+    width: 1.5px;
+    height: 70px;
+    background-color: #dddddd;
+}
