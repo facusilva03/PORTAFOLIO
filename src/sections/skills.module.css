@@ -1,0 +1,242 @@
+/* ─────────────────────────────────────────
+   SECCIÓN SKILLS — layout vertical + soft skills
+───────────────────────────────────────── */
+.skillsSection {
+    padding: 100px 6%;
+    background-color: #141414;
+    font-family: 'Space Grotesk', sans-serif;
+    min-height: 100vh;
+}
+
+/* ─── ENCABEZADO PRINCIPAL ─── */
+
+.sectionHeader {
+    margin-bottom: 56px;
+}
+
+.eyebrow {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: #942dad;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.sectionTitle::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: #2a2a2a;
+}
+
+/* ─── LISTA VERTICAL DE SKILLS TÉCNICAS ─── */
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.categoryRow {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 28px 0;
+    border-bottom: 1px solid #1e1e1e;
+    animation: fadeSlideLeft 0.5s ease both;
+}
+
+.categoryRow:first-child {
+    border-top: 1px solid #1e1e1e;
+}
+
+@keyframes fadeSlideLeft {
+    from { opacity: 0; transform: translateX(-16px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+.categoryRow:nth-child(1) { animation-delay: 0.05s; }
+.categoryRow:nth-child(2) { animation-delay: 0.15s; }
+.categoryRow:nth-child(3) { animation-delay: 0.25s; }
+.categoryRow:nth-child(4) { animation-delay: 0.35s; }
+
+.categoryLabel {
+    flex: 0 0 200px;
+    padding-top: 6px;
+}
+
+.categoryName {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.categoryCount {
+    font-size: 0.68rem;
+    color: #555555;
+    font-weight: 400;
+}
+
+.pillsCol {
+    flex: 1;
+}
+
+.pillsRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pill {
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: 1px solid #2a2a2a;
+    color: #c0c0c0;
+    background-color: #1a1a1a;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.pill:hover {
+    border-color: #3a1a5a;
+    color: #ffffff;
+}
+
+.pillFeatured {
+    background-color: #160a22;
+    border-color: #5a008a;
+    color: #cc77ff;
+    font-weight: 600;
+}
+
+.pillFeatured:hover {
+    border-color: #7a00ba;
+    color: #dd99ff;
+}
+
+.footnote {
+    margin-top: 32px;
+    font-size: 0.78rem;
+    color: #555555;
+}
+
+.footnoteAccent {
+    color: #942dad;
+    font-weight: 600;
+}
+
+
+/* ─── SOFT SKILLS ─── */
+
+/*
+  Separación visual clara entre las dos subsecciones:
+  margin-top generoso + el mismo patrón de eyebrow + título
+  que usamos en el encabezado principal y en About.
+  La coherencia de patrones hace que el sitio se sienta
+  diseñado, no ensamblado.
+*/
+.softHeader {
+    margin-top: 80px;
+    margin-bottom: 36px;
+}
+
+.softEyebrow {
+    font-size: 10.5px;
+    font-weight: 500;
+    color: #942dad;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.softTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.softTitle::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: #2a2a2a;
+}
+
+/*
+  Grid de soft skills: 5 cards en una fila en pantallas grandes.
+  repeat(auto-fit, minmax(200px, 1fr)) se adapta solo:
+  - 1280px+ → 5 columnas (todas en una fila)
+  - ~900px  → 3 columnas
+  - ~600px  → 2 columnas
+  Sin media queries.
+*/
+.softGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+/*
+  Cada card de soft skill tiene una jerarquía visual de tres niveles:
+  número (decorativo, gris muy oscuro) → nombre (blanco, prominente)
+  → descripción (gris claro, informativa).
+  El número grande en la esquina sirve de ancla visual — el ojo
+  lo ve primero y luego baja al nombre y la descripción.
+*/
+.softCard {
+    background-color: #1a1a1a;
+    border: 1px solid #242424;
+    border-radius: 10px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Borde izquierdo violeta sutil — diferencia visual respecto
+       a las pills técnicas sin ser demasiado llamativo */
+    border-left: 3px solid #2a0a3a;
+    transition: border-left-color 0.2s ease;
+}
+
+.softCard:hover {
+    border-left-color: #5a008a;
+}
+
+/* Número decorativo: grande, gris muy oscuro, casi invisible.
+   Su función es estructural, no informativa. */
+.softNumber {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2a2a2a;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+.softName {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+.softDesc {
+    font-size: 0.78rem;
+    color: #888888;
+    line-height: 1.65;
+    font-weight: 400;
+}

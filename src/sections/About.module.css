@@ -1,14 +1,9 @@
-/* ─────────────────────────────────────────
-   SECCIÓN ABOUT — fondo oscuro
-───────────────────────────────────────── */
 .aboutSection {
     padding: 80px 6%;
-    /* Fondo oscuro consistente con el boceto */
     background-color: #0d0d0d;
     font-family: 'Space Grotesk', sans-serif;
 }
 
-/* ─── ENCABEZADO ─── */
 .sectionHeader {
     margin-bottom: 36px;
 }
@@ -22,14 +17,10 @@
     margin-bottom: 8px;
 }
 
-/*
-  El ::after crea la línea horizontal que completa el título.
-  En fondo oscuro usamos un gris más oscuro para que no sea
-  demasiado contrastante.
-*/
 .sectionTitle {
     font-size: 2rem;
     font-weight: 700;
+    /* Blanco puro para el título — máximo contraste */
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -43,7 +34,6 @@
     background-color: #2a2a2a;
 }
 
-/* ─── LAYOUT ─── */
 .columns {
     display: flex;
     gap: 0;
@@ -54,6 +44,7 @@
 }
 
 /* ─── COLUMNA IZQUIERDA ─── */
+
 .colLeft {
     flex: 0 0 280px;
     padding: 32px 28px;
@@ -79,6 +70,7 @@
     font-family: 'Space Grotesk', sans-serif;
 }
 
+/* Nombre: blanco puro — es lo más importante de la columna */
 .name {
     font-size: 1rem;
     font-weight: 700;
@@ -95,7 +87,6 @@
     margin-bottom: 20px;
 }
 
-/* Separador sutil entre bloques de la columna izquierda */
 .leftDivider {
     width: 100%;
     height: 1px;
@@ -109,7 +100,12 @@
     gap: 10px;
     margin-bottom: 10px;
     font-size: 0.8rem;
-    color: #888888;
+    /*
+      #c0c0c0 en lugar de #888 — en dark mode los textos secundarios
+      necesitan más brillo para ser legibles sin esfuerzo.
+      Regla práctica: si tenés que "esforzarte" para leerlo, está muy oscuro.
+    */
+    color: #c0c0c0;
     font-weight: 400;
 }
 
@@ -127,18 +123,13 @@
     flex-shrink: 0;
 }
 
-/*
-  Bloque de redes sociales: mismo patrón que contactItem
-  pero con el nombre de la red como label y hover que
-  ilumina el ícono — da feedback visual sin ser llamativo.
-*/
 .socialItem {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-bottom: 10px;
     font-size: 0.8rem;
-    color: #888888;
+    color: #c0c0c0;
     font-weight: 400;
     text-decoration: none;
     transition: color 0.2s ease;
@@ -177,6 +168,7 @@
 }
 
 /* ─── COLUMNA DERECHA ─── */
+
 .colRight {
     flex: 1;
     padding: 32px 36px;
@@ -202,18 +194,14 @@
 
 .statLbl {
     font-size: 0.65rem;
-    color: #555555;
+    /* Subió de #555 a #888 — los labels deben leerse sin esfuerzo */
+    color: #888888;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-top: 4px;
     font-weight: 500;
 }
 
-/*
-  Bio: gap reducido a 8px — los párrafos quedan juntos
-  pero todavía con respiración entre ellos.
-  Antes era 12px, que los separaba demasiado.
-*/
 .bio {
     display: flex;
     flex-direction: column;
@@ -223,7 +211,12 @@
 
 .bio p {
     font-size: 0.88rem;
-    color: #aaaaaa;
+    /*
+      #d0d0d0 para el cuerpo de texto — más brillante que el gris anterior.
+      La diferencia entre #aaa y #d0d es sutil en papel pero
+      enorme en pantalla, especialmente en monitores con contraste alto.
+    */
+    color: #d0d0d0;
     line-height: 1.7;
     font-weight: 400;
 }
@@ -235,10 +228,12 @@
 }
 
 /* ─── TIMELINE ─── */
+
 .timelineTitle {
     font-size: 0.65rem;
     font-weight: 600;
-    color: #666666;
+    /* Label de sección: gris medio, no compite con el contenido */
+    color: #888888;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     margin-bottom: 16px;
@@ -278,13 +273,15 @@
     padding-bottom: 6px;
 }
 
+/* Título de la carrera: blanco puro — es la info más importante */
 .tlDegree {
-    font-size: 0.86rem;
+    font-size: 0.88rem;
     font-weight: 600;
     color: #ffffff;
     margin-bottom: 2px;
 }
 
+/* Universidad: violeta — color de acento, crea jerarquía visual */
 .tlSchool {
     font-size: 0.78rem;
     color: #942dad;
@@ -292,16 +289,19 @@
     margin-bottom: 2px;
 }
 
+/* Fecha: lo menos importante, el tono más bajo */
 .tlDate {
     font-size: 0.7rem;
-    color: #555555;
+    color: #666666;
     font-weight: 400;
 }
 
 /* ─── QUOTE BOX ─── */
+
 .quoteBox {
     background-color: #0a0a0a;
-    color: #666666;
+    /* Texto de la cita: gris medio — es decorativo, no informativo */
+    color: #888888;
     padding: 16px 20px;
     border-left: 3px solid #5a008a;
     border-radius: 0;
