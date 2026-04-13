@@ -25,7 +25,7 @@ const Hero = () => {
                     Based in Mendoza, Argentina.
                 </p>
 
-                <button className={styles.ctaButton}>Contacto</button>
+                <a href="#contact" className={styles.ctaButton}>Contacto</a>
 
                 <div className={styles.contactInfo}>
                     <span>+54 2616152411</span>

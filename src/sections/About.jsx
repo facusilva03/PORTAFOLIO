@@ -78,8 +78,12 @@ const About = () => {
 
                     <div className={styles.leftDivider}></div>
 
-                    <a href="#" className={styles.cvBtn}>
-                        Descargar CV <FaDownload size={10} />
+                    <a 
+                      href="/cv-facundo-silva.pdf" 
+                      download="CURRICULUM VITAE.pdf"
+                      className={styles.cvBtn}
+                    >
+                      Descargar CV <FaDownload size={10} />
                     </a>
                 </div>
 

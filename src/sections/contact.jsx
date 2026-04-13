@@ -15,10 +15,10 @@ const Contact = () => {
     setError(false);
 
 emailjs.sendForm(
-  'service_qgf88fi',
-  'template_fw4nd7r',
+  import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
   formRef.current,
-  'S5823juvFpbSISovu'
+  import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 )
       .then(() => {
         setSuccess(true);
