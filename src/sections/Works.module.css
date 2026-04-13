@@ -237,3 +237,46 @@
     color: #dd99ff;
     border-color: #7a00ba;
 }
+
+/* ─── MOBILE ─── */
+@media (max-width: 768px) {
+    .worksSection {
+        padding: 60px 20px;
+        min-height: unset;
+    }
+
+    .sectionHeader {
+        margin-bottom: 36px;
+    }
+
+    .sectionTitle {
+        font-size: 1.6rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Todos los spans colapsan a 1 columna */
+    .span1,
+    .span2,
+    .span3 {
+        grid-column: span 1;
+    }
+
+    .sizeLg {
+        padding: 24px 20px;
+    }
+
+    .sizeLg .cardTitle {
+        font-size: 1.25rem;
+    }
+
+    .sizeMd {
+        padding: 20px 16px;
+    }
+
+    .sizeSm {
+        padding: 16px 14px;
+    }
+}

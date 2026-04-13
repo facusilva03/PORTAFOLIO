@@ -240,3 +240,45 @@
     line-height: 1.65;
     font-weight: 400;
 }
+
+/* ─── MOBILE ─── */
+@media (max-width: 768px) {
+    .skillsSection {
+        padding: 60px 20px;
+        min-height: unset;
+    }
+
+    .sectionHeader {
+        margin-bottom: 36px;
+    }
+
+    .sectionTitle {
+        font-size: 1.6rem;
+    }
+
+    .categoryRow {
+        flex-direction: column;
+        gap: 14px;
+        padding: 20px 0;
+    }
+
+    .categoryLabel {
+        flex: none;
+        width: 100%;
+        padding-top: 0;
+    }
+
+    .softHeader {
+        margin-top: 56px;
+        margin-bottom: 24px;
+    }
+
+    .softGrid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+    }
+
+    .softCard {
+        padding: 18px 16px;
+    }
+}

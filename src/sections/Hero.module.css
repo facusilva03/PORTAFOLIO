@@ -195,3 +195,78 @@
     height: 70px;
     background-color: #dddddd;
 }
+
+/* ─── MOBILE ─── */
+@media (max-width: 768px) {
+    .heroContainer {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 24px 60px;
+        gap: 36px;
+        height: auto;
+        min-height: calc(100svh - 60px);
+        text-align: center;
+        overflow: visible;
+    }
+
+    .content {
+        text-align: center;
+        width: 100%;
+    }
+
+    .introText {
+        font-size: 9px;
+        letter-spacing: 2.5px;
+        margin-bottom: 14px;
+    }
+
+    .name {
+        font-size: clamp(2.6rem, 11vw, 3.5rem);
+    }
+
+    .description {
+        max-width: 100%;
+        font-size: 0.9rem;
+        margin-top: 16px;
+        margin-bottom: 24px;
+    }
+
+    .ctaButton {
+        padding: 12px 36px;
+        font-size: 0.88rem;
+        margin-bottom: 20px;
+    }
+
+    .contactInfo {
+        flex-direction: column;
+        gap: 6px;
+        font-size: 0.75rem;
+        align-items: center;
+    }
+
+    .imageContainer {
+        order: -1;
+    }
+
+    .offsetWrap {
+        width: 220px;
+        height: 290px;
+    }
+
+    .offsetBorder {
+        width: 204px;
+        height: 274px;
+        top: 12px;
+        left: 12px;
+    }
+
+    .offsetPhoto {
+        width: 204px;
+        height: 274px;
+    }
+
+    .socialBar {
+        display: none;
+    }
+}

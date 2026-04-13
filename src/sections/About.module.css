@@ -311,3 +311,35 @@
     margin-top: 20px;
     font-family: 'Space Grotesk', sans-serif;
 }
+
+/* ─── MOBILE ─── */
+@media (max-width: 768px) {
+    .aboutSection {
+        padding: 60px 20px;
+    }
+
+    .columns {
+        flex-direction: column;
+    }
+
+    .colLeft {
+        flex: none;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #242424;
+        padding: 24px 20px;
+    }
+
+    .colRight {
+        padding: 24px 20px;
+    }
+
+    .statsRow {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .sectionTitle {
+        font-size: 1.6rem;
+    }
+}

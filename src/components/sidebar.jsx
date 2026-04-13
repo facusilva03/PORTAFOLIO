@@ -12,6 +12,7 @@ const NAV_ITEMS = [
 
 const Sidebar = () => {
   const [activeId, setActiveId] = useState('home');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const observers = [];
@@ -36,6 +37,11 @@ const Sidebar = () => {
     return () => observers.forEach((obs) => obs.disconnect());
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   return (
     <aside className={styles.sidebar}>
 
@@ -43,7 +49,7 @@ const Sidebar = () => {
         <h1 className={styles.logo}>F.</h1>
       </div>
 
-      <nav>
+      <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
         <ul className={styles.navList}>
           {NAV_ITEMS.map(({ id, label }, index) => (
             <React.Fragment key={id}>
@@ -52,6 +58,7 @@ const Sidebar = () => {
                 <a
                   href={`#${id}`}
                   className={`${styles.navAnchor} ${activeId === id ? styles.active : ''}`}
+                  onClick={() => setMenuOpen(false)}
                 >
                   {label}
                 </a>
@@ -64,6 +71,16 @@ const Sidebar = () => {
       <div className={styles.footer}>
         © 2026 Facundo Silva
       </div>
+
+      <button
+        className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ''}`}
+        onClick={() => setMenuOpen(prev => !prev)}
+        aria-label="Abrir menú"
+      >
+        <span />
+        <span />
+        <span />
+      </button>
 
     </aside>
   );

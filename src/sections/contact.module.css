@@ -280,13 +280,39 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
+  .contact {
+    padding: 60px 20px;
+    min-height: unset;
+  }
+
+  .title {
+    font-size: 1.9rem;
+  }
+
   .card {
     flex-direction: column;
   }
 
   .left {
     flex: none;
+    width: 100%;
     border-right: none;
     border-bottom: 1px solid #242424;
+    padding: 24px 20px;
+    gap: 16px;
+  }
+
+  .right {
+    padding: 24px 20px;
+  }
+
+  .stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .statCard {
+    flex: 1 1 120px;
   }
 }

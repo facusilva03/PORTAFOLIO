@@ -141,3 +141,31 @@
     border: 1px solid #3a1a5a;
     color: #942dad;
 }
+
+/* ─── MOBILE ─── */
+@media (max-width: 768px) {
+    .servicesSection {
+        padding: 60px 20px;
+        min-height: unset;
+    }
+
+    .sectionHeader {
+        margin-bottom: 36px;
+    }
+
+    .sectionTitle {
+        font-size: 1.6rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 22px 18px;
+    }
+
+    .cardTitle {
+        padding-right: 36px;
+    }
+}
