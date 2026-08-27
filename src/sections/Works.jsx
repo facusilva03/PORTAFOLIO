@@ -33,6 +33,32 @@ const WORKS = [
         size: 'md',
         status: 'En reestructuración',
     },
+    {
+        id: '03',
+        category: 'Gestión · Logística',
+        title: 'LogiTrack',
+        description:
+            'Sistema de gestión de cadena logística terrestre desarrollado en PHP puro con arquitectura MVC y MariaDB. Maneja envíos, viajes, choferes y clientes con 4 roles distintos, trazabilidad de estados y GPS, stored procedures y triggers de auditoría. Seguridad reforzada con prepared statements, sesiones con timeout y baja lógica en todos los CRUD.',
+        stack: ['PHP', 'MariaDB', 'PDO', 'MVC', 'SQL'],
+        github: 'https://github.com/facusilva03/LOGITRACK',
+        live: null,
+        span: 2,
+        size: 'md',
+        status: null,
+    },
+    {
+        id: '04',
+        category: 'Gestión · Fintech',
+        title: 'Sistema de Préstamos',
+        description:
+            'Aplicación de escritorio/local para gestionar préstamos personales con amortización francesa, pensada para reemplazar una planilla de Excel/VBA. Construida con Django y SQLite, con vista de cobranza para marcar cuotas pagadas, backups automáticos y cálculo financiero exacto usando Decimal en vez de floats.',
+        stack: ['Python', 'Django', 'SQLite', 'Tailwind CSS'],
+        github: 'https://github.com/facusilva03/SISTEMA-PRESTAMOS-',
+        live: null,
+        span: 1,
+        size: 'md',
+        status: null,
+    },
 ];
 
 const Works = () => {
