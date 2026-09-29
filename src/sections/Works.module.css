@@ -156,6 +156,14 @@
     white-space: nowrap;
 }
 
+/* Verde para lo que está en producción: el ámbar del badge base lee como
+   "todavía no terminado", que es lo contrario de lo que queremos decir. */
+.statusBadgeLive {
+    color: #4ade80;
+    background-color: #0b2416;
+    border-color: #1c4a2e;
+}
+
 .cardCategory {
     font-size: 10px;
     font-weight: 500;
@@ -203,6 +211,7 @@
 
 .linksRow {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin-top: 8px;
 }
@@ -225,6 +234,21 @@
 .linkBtn:hover {
     color: #ffffff;
     border-color: #5a008a;
+}
+
+/* Es un <button>, no un <a>: los botones no heredan la tipografía ni el
+   cursor, así que hay que declararlos para que se vea igual que sus vecinos. */
+.linkBtnCaso {
+    font-family: 'Space Grotesk', sans-serif;
+    cursor: pointer;
+    color: #cfcfcf;
+    border-color: #3a3a3a;
+}
+
+.linkBtnCaso:hover {
+    color: #ffffff;
+    border-color: #7a00ba;
+    background-color: #1c0e2a;
 }
 
 .linkBtnLive {

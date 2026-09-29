@@ -27,8 +27,10 @@ const Hero = () => {
 
                 <a href="#contact" className={styles.ctaButton}>Contacto</a>
 
+                {/* Solo el email: el teléfono personal en un sitio público e
+                    indexable es un vector de spam e ingeniería social. Para
+                    contactarlo están el formulario y LinkedIn. */}
                 <div className={styles.contactInfo}>
-                    <span>+54 2616152411</span>
                     <span>facusilva2003@gmail.com</span>
                 </div>
             </div>

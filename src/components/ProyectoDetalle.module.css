@@ -1,0 +1,272 @@
+/* ─────────────────────────────────────────
+   PANEL DE DETALLE DE PROYECTO
+   Misma paleta que Works: fondo #141414, violeta #5a008a.
+───────────────────────────────────────── */
+
+.fondo {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: rgba(8, 8, 10, 0.82);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    animation: aparecer 0.2s ease both;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes subir {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.panel {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    max-height: 100%;
+    overflow-y: auto;
+    background-color: #161616;
+    border: 1px solid #2a2a2a;
+    border-left: 3px solid #5a008a;
+    border-radius: 14px;
+    font-family: 'Space Grotesk', sans-serif;
+    animation: subir 0.28s ease both;
+}
+
+/* ─── Botón de cierre ─── */
+
+.cerrar {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid #2a2a2a;
+    background-color: #1c1c1c;
+    color: #888888;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.cerrar:hover {
+    color: #ffffff;
+    border-color: #5a008a;
+}
+
+/* ─── Encabezado ─── */
+
+.encabezado {
+    padding: 38px 36px 26px;
+    background-color: #1c0e2a;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.categoria {
+    font-size: 10px;
+    font-weight: 500;
+    color: #942dad;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin: 0 0 10px;
+}
+
+.titulo {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 14px;
+    /* Deja aire antes del botón de cierre en anchos chicos. */
+    padding-right: 44px;
+}
+
+.resumen {
+    font-size: 0.92rem;
+    color: #b8b8b8;
+    line-height: 1.7;
+    margin: 0 0 20px;
+}
+
+.stackRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.stackPill {
+    font-size: 0.73rem;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 5px;
+    border: 1px solid #3a1055;
+    color: #cc77ff;
+    background-color: #160a22;
+}
+
+/* ─── Cuerpo ─── */
+
+.cuerpo {
+    padding: 30px 36px 8px;
+}
+
+.bloque {
+    margin-bottom: 30px;
+}
+
+.subtitulo {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #942dad;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 0 14px;
+}
+
+.parrafo {
+    font-size: 0.87rem;
+    color: #999999;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.lista {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* La barra izquierda separa un ítem del siguiente sin sumar viñetas,
+   que en una lista de párrafos largos ensucian más de lo que ayudan. */
+.item {
+    padding-left: 14px;
+    border-left: 2px solid #2a0a3a;
+}
+
+.itemTitulo {
+    display: block;
+    font-size: 0.87rem;
+    font-weight: 600;
+    color: #e4e4e4;
+    margin-bottom: 4px;
+}
+
+.itemTexto {
+    display: block;
+    font-size: 0.85rem;
+    color: #999999;
+    line-height: 1.8;
+}
+
+/* ─── Pie ─── */
+
+.pie {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 22px 36px 30px;
+    border-top: 1px solid #242424;
+}
+
+/* Ocupa la fila entera para que, si además hay botones, queden abajo. */
+.repoNota {
+    flex: 1 0 100%;
+    margin: 0;
+    font-size: 0.8rem;
+    color: #777777;
+    line-height: 1.7;
+    font-style: italic;
+}
+
+.linkBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #888888;
+    text-decoration: none;
+    padding: 9px 18px;
+    border: 1px solid #2a2a2a;
+    border-radius: 6px;
+    background-color: #141414;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.linkBtn:hover {
+    color: #ffffff;
+    border-color: #5a008a;
+}
+
+.linkBtnLive {
+    color: #cc77ff;
+    border-color: #3a1055;
+    background-color: #160a22;
+}
+
+.linkBtnLive:hover {
+    color: #dd99ff;
+    border-color: #7a00ba;
+}
+
+/* Quien pidió menos movimiento ve el panel aparecer sin desplazamiento. */
+@media (prefers-reduced-motion: reduce) {
+    .fondo,
+    .panel {
+        animation: none;
+    }
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 768px) {
+    .fondo {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    /* A pantalla completa desde abajo: en un teléfono el panel flotante
+       con márgenes desperdicia el poco alto que hay. */
+    .panel {
+        max-width: 100%;
+        max-height: 92vh;
+        border-radius: 14px 14px 0 0;
+        border-left: 1px solid #2a2a2a;
+        border-top: 3px solid #5a008a;
+    }
+
+    .encabezado {
+        padding: 30px 22px 22px;
+    }
+
+    .titulo {
+        font-size: 1.45rem;
+    }
+
+    .cuerpo {
+        padding: 24px 22px 4px;
+    }
+
+    .pie {
+        padding: 18px 22px 26px;
+    }
+
+    .cerrar {
+        top: 14px;
+        right: 14px;
+    }
+}
