@@ -120,7 +120,9 @@
 }
 
 
-/* ─── COLUMNA DERECHA: foto con efecto offset ─── */
+/* ─── COLUMNA DERECHA: terminal ───
+   El tamaño y el borde violeta viven en components/Terminal.module.css;
+   acá solo se posiciona la columna. */
 
 .imageContainer {
     flex: 0 0 auto;
@@ -129,36 +131,6 @@
     align-items: center;
     animation: fadeSlideRight 0.9s ease both;
     animation-delay: 0.35s;
-}
-
-/* 400×530px → proporción 3:4, ideal para retrato de medio cuerpo */
-.offsetWrap {
-    position: relative;
-    width: 416px;
-    height: 546px;
-}
-
-.offsetBorder {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    width: 400px;
-    height: 530px;
-    border: 2.5px solid #5a008a;
-    border-radius: 0;
-    z-index: 1;
-}
-
-.offsetPhoto {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 400px;
-    height: 530px;
-    object-fit: cover;
-    object-position: center top;
-    border-radius: 0;
-    z-index: 2;
 }
 
 
@@ -245,25 +217,11 @@
         align-items: center;
     }
 
+    /* En mobile la terminal va abajo del texto: el nombre tiene que ser
+       lo primero que se ve, no el adorno. */
     .imageContainer {
-        order: -1;
-    }
-
-    .offsetWrap {
-        width: 220px;
-        height: 290px;
-    }
-
-    .offsetBorder {
-        width: 204px;
-        height: 274px;
-        top: 12px;
-        left: 12px;
-    }
-
-    .offsetPhoto {
-        width: 204px;
-        height: 274px;
+        order: 1;
+        width: 100%;
     }
 
     .socialBar {

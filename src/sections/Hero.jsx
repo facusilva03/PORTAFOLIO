@@ -1,5 +1,5 @@
 import styles from './Hero.module.css';
-import photoProfile from '../assets/facundo-profile.png';
+import Terminal from '../components/Terminal';
 import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Hero = () => {
@@ -33,33 +33,13 @@ const Hero = () => {
                 </div>
             </div>
 
-            {/* ── COLUMNA DERECHA: foto con efecto offset ── */}
+            {/* ── COLUMNA DERECHA: terminal ──
+                Antes había una foto de perfil. La terminal dice lo mismo que
+                diría la foto ("este soy yo") pero además muestra en qué trabaja,
+                sin ocupar más espacio. El borde violeta desplazado se conserva
+                dentro del propio componente. */}
             <div className={styles.imageContainer}>
-
-                {/*
-                    offsetWrap es el "padre relativo" (position: relative).
-                    Dentro viven DOS hijos con position: absolute:
-                      1. offsetBorder  → el rectángulo violeta, desplazado
-                      2. offsetPhoto   → la foto encima, en la posición 0,0
-                    El padre necesita dimensiones explícitas porque sus hijos
-                    están fuera del flujo normal (absolute), así que no lo expanden.
-                */}
-                <div className={styles.offsetWrap}>
-
-                    {/* Borde decorativo: solo tiene un border, sin fondo.
-                        Está desplazado 12px hacia abajo y a la derecha
-                        para crear la ilusión de profundidad. */}
-                    <div className={styles.offsetBorder}></div>
-
-                    {/* Foto: encima del borde, en la esquina superior izquierda.
-                        object-fit: cover hace que la imagen llene el contenedor
-                        sin deformarse, recortando los bordes si es necesario. */}
-                    <img
-                        src={photoProfile}
-                        alt="Facundo Silva"
-                        className={styles.offsetPhoto}
-                    />
-                </div>
+                <Terminal />
             </div>
 
             {/* ── BARRA LATERAL: íconos sociales ── */}
