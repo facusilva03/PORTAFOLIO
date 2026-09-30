@@ -4,9 +4,13 @@
    del diseño original para que no se sienta traída de otro sitio.
 ───────────────────────────────────────── */
 
+/* El ancho era fijo en 440px, calculado para un área de ~1290px (1080p con
+   la sidebar). En pantallas más anchas eso dejaba un hueco grande entre el
+   nombre y la terminal. Ahora escala con el viewport: el mínimo conserva el
+   tamaño original y el máximo evita que se vuelva desproporcionada. */
 .wrap {
     position: relative;
-    width: 440px;
+    width: clamp(440px, 34vw, 640px);
     flex: 0 0 auto;
 }
 
@@ -62,10 +66,13 @@
 
 /* ─── Cuerpo ─── */
 
+/* La tipografía acompaña al ancho: una terminal de 640px con texto de 0.86rem
+   se ve vacía. El min-height reserva la altura final para que el layout no
+   salte mientras se escribe, así que también tiene que escalar. */
 .cuerpo {
-    padding: 22px 20px 26px;
-    min-height: 330px;
-    font-size: 0.86rem;
+    padding: clamp(22px, 1.6vw, 30px) clamp(20px, 1.5vw, 28px) clamp(26px, 1.8vw, 34px);
+    min-height: clamp(330px, 21vw, 384px);
+    font-size: clamp(0.86rem, 0.55vw + 0.38rem, 1rem);
     line-height: 1.75;
 }
 

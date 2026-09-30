@@ -1,5 +1,5 @@
 import styles from './About.module.css';
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaCalendarAlt, FaDownload, FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaCalendarAlt, FaDownload, FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const About = () => {
     return (
@@ -19,11 +19,11 @@ const About = () => {
                     <h3 className={styles.name}>Facundo Silva</h3>
                     <p className={styles.role}>Software Dev · Security</p>
 
-                    {/* Bloque 1: datos de contacto */}
-                    <div className={styles.contactItem}>
-                        <div className={styles.contactIcon}><FaPhoneAlt size={10} /></div>
-                        <span>+54 261 615 2411</span>
-                    </div>
+                    {/* Bloque 1: datos de contacto.
+                        Sin teléfono: un número personal en un sitio público e
+                        indexable es un vector de spam e ingeniería social, y
+                        además no se puede dar de baja como un formulario.
+                        Para contactarme están el email, el formulario y LinkedIn. */}
                     <div className={styles.contactItem}>
                         <div className={styles.contactIcon}><FaEnvelope size={10} /></div>
                         <span>facusilva2003@gmail.com</span>
@@ -104,7 +104,12 @@ const About = () => {
                     <div className={styles.bio}>
                         <p>Soy estudiante de Sistemas y Ciberseguridad, enfocado en el desarrollo de aplicaciones backend y el diseño de sistemas seguros.</p>
                         <p>Me interesa entender cómo funcionan los sistemas en profundidad, cómo se construyen y cómo pueden ser vulnerados, para luego diseñarlos de forma más robusta.</p>
-                        <p>Actualmente trabajo con Node.js, bases de datos y herramientas de seguridad, combinando desarrollo y ciberdefensa.</p>
+                        {/* Esta frase decía "Actualmente trabajo con Node.js", y
+                            ninguno de mis proyectos es Node: son Django y Laravel.
+                            Lo que se afirma acá tiene que coincidir con lo que
+                            muestran los proyectos, o la primera pregunta de una
+                            entrevista lo desarma. */}
+                        <p>Hoy trabajo con Python y Django —tengo un sistema en producción, en uso diario— y con PHP y Laravel, siempre sobre bases de datos relacionales. En paralelo estoy profundizando en Java y Go.</p>
                     </div>
 
                     <hr className={styles.divider} />
