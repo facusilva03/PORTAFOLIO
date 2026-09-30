@@ -69,6 +69,7 @@
 .categoryRow:nth-child(2) { animation-delay: 0.15s; }
 .categoryRow:nth-child(3) { animation-delay: 0.25s; }
 .categoryRow:nth-child(4) { animation-delay: 0.35s; }
+.categoryRow:nth-child(5) { animation-delay: 0.45s; }
 
 .categoryLabel {
     flex: 0 0 200px;
@@ -136,6 +137,60 @@
 .footnoteAccent {
     color: #942dad;
     font-weight: 600;
+}
+
+
+/* ─── FORMACIÓN APLICADA ─── */
+
+/*
+  Misma estructura de dos columnas que .categoryRow (etiqueta fija a la
+  izquierda, contenido a la derecha) para que la sección se lea como parte
+  del mismo bloque y no como algo pegado después.
+*/
+.formacionList {
+    display: flex;
+    flex-direction: column;
+}
+
+.formacionRow {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 26px 0;
+    border-bottom: 1px solid #1e1e1e;
+}
+
+.formacionRow:first-child {
+    border-top: 1px solid #1e1e1e;
+}
+
+.formacionMateria {
+    flex: 0 0 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.formacionNombre {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.35;
+}
+
+.formacionCarrera {
+    font-size: 0.72rem;
+    color: #666666;
+    line-height: 1.5;
+}
+
+.formacionResultado {
+    flex: 1;
+    margin: 0;
+    padding-top: 2px;
+    font-size: 0.87rem;
+    color: #999999;
+    line-height: 1.8;
 }
 
 
@@ -266,6 +321,19 @@
         flex: none;
         width: 100%;
         padding-top: 0;
+    }
+
+    /* Mismo colapso a una columna que .categoryRow: a 390px una etiqueta
+       fija de 260px no deja lugar para el texto. */
+    .formacionRow {
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 0;
+    }
+
+    .formacionMateria {
+        flex: none;
+        width: 100%;
     }
 
     .softHeader {
