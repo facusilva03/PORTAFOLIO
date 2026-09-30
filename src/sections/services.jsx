@@ -4,10 +4,10 @@ const SERVICES = [
     {
         number: '01',
         tag: 'Backend',
-        title: 'APIs & Lógica de negocio',
+        title: 'Backend & Lógica de negocio',
         description:
-            'Desarrollo de APIs REST funcionales, escalables y bien documentadas. Arquitectura limpia, manejo de errores y enfoque en rendimiento desde el diseño.',
-        techs: ['Node.js', 'Express', 'REST'],
+            'Modelado del dominio, reglas de negocio, autenticación y control de acceso por rol. Con las operaciones críticas dentro de transacciones, para que un fallo a mitad de camino no deje datos inconsistentes.',
+        techs: ['Python / Django', 'PHP / Laravel'],
     },
     {
         number: '02',
@@ -15,7 +15,7 @@ const SERVICES = [
         title: 'Modelado & Diseño de bases de datos',
         description:
             'Diseño de esquemas relacionales optimizados para integridad y eficiencia. Estructuras que se adaptan al dominio del negocio y escalan con él.',
-        techs: ['PostgreSQL', 'SQL'],
+        techs: ['SQL', 'MariaDB', 'SQLite'],
     },
     {
         number: '03',
@@ -30,8 +30,8 @@ const SERVICES = [
         tag: 'Full Stack',
         title: 'Aplicaciones web completas',
         description:
-            'De la idea al producto terminado. Frontend en React integrado con backend Node.js y base de datos PostgreSQL, listo para producción.',
-        techs: ['React', 'Node.js', 'PostgreSQL'],
+            'De la idea al producto en uso, no a una demo local: frontend en React integrado con backend Django o Laravel, con el despliegue, el acceso y los respaldos resueltos.',
+        techs: ['React', 'Django', 'Laravel'],
     },
 ];
 

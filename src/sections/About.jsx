@@ -97,7 +97,10 @@ const About = () => {
                         </div>
                         <div className={styles.stat}>
                             <span className={styles.statNum}>2</span>
-                            <span className={styles.statLbl}>Proyectos reales</span>
+                            {/* "Proyectos reales" se leía como una contradicción
+                                con las 4 cards de Works. Son 2 los que están en
+                                uso por otras personas; los otros dos son míos. */}
+                            <span className={styles.statLbl}>Proyectos en uso real</span>
                         </div>
                     </div>
 

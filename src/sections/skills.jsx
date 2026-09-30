@@ -10,12 +10,21 @@ const SKILLS = [
         ],
     },
     {
+        /*
+          featured significa "mayor dominio actual" (lo dice la nota al pie),
+          así que solo va en lo que está respaldado por un proyecto que
+          alguien puede abrir y revisar. Node.js y REST APIs salieron de acá:
+          no hay un solo proyecto propio en Node, y los dos backends reales
+          son Django y Laravel. SQL y Java están sin destacar a propósito —
+          están en curso, y afirmar dominio de algo que todavía se está
+          aprendiendo es justo lo que desarma una entrevista.
+        */
         category: 'Backend & Databases',
         items: [
-            { name: 'Node.js', featured: true },
-            { name: 'REST APIs', featured: true },
-            { name: 'PostgreSQL', featured: false },
+            { name: 'Python / Django', featured: true },
+            { name: 'PHP / Laravel', featured: true },
             { name: 'SQL', featured: false },
+            { name: 'Java', featured: false },
         ],
     },
     {
