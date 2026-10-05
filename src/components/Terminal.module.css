@@ -69,11 +69,27 @@
 /* La tipografía acompaña al ancho: una terminal de 640px con texto de 0.86rem
    se ve vacía. El min-height reserva la altura final para que el layout no
    salte mientras se escribe, así que también tiene que escalar. */
+/* Altura fija en vez de min-height: ahora el contenido crece con cada
+   comando, así que la terminal scrollea por dentro en lugar de empujar el
+   layout del Hero hacia abajo. */
 .cuerpo {
     padding: clamp(22px, 1.6vw, 30px) clamp(20px, 1.5vw, 28px) clamp(26px, 1.8vw, 34px);
-    min-height: clamp(330px, 21vw, 384px);
+    height: clamp(330px, 21vw, 384px);
+    overflow-y: auto;
     font-size: clamp(0.86rem, 0.55vw + 0.38rem, 1rem);
     line-height: 1.75;
+    cursor: text;
+    scrollbar-width: thin;
+    scrollbar-color: #2a2a35 transparent;
+}
+
+.cuerpo::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cuerpo::-webkit-scrollbar-thumb {
+    background-color: #2a2a35;
+    border-radius: 3px;
 }
 
 .bloque + .bloque {
@@ -116,12 +132,57 @@
     margin: 2px 0 0;
     padding-left: 18px;
     color: #a1a1aa;
+    /* La lista de `help` alinea las columnas con espacios: sin pre-wrap el
+       navegador los colapsa y la alineación se pierde. */
+    white-space: pre-wrap;
 }
 
 /* Lo único con color fuerte: el dato que más pesa (algo en producción). */
 .destacado {
     color: #4ade80;
     font-weight: 500;
+}
+
+/* Texto secundario dentro de una salida: la lista de help, las aclaraciones. */
+.tenue {
+    color: #6b6b7b;
+}
+
+.error {
+    color: #f87171;
+}
+
+/* ─── Prompt interactivo ─── */
+
+/*
+  El input tiene que desaparecer como control y leerse como una línea más de
+  la terminal: sin borde, sin fondo, heredando la tipografía. El foco se ve
+  por el cursor que parpadea al lado, no por un outline del navegador que
+  rompería la ilusión.
+*/
+.input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 0;
+    color: #f4f4f5;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    caret-color: #c77dff;
+}
+
+/* Pista de uso. Aparece solo hasta el primer comando: después estorba. */
+.pista {
+    margin: 0 0 10px;
+    font-size: 0.78em;
+    color: #5a5a6b;
+}
+
+.pistaAccent {
+    color: #c77dff;
 }
 
 .extra,
@@ -175,7 +236,9 @@
 
     .cuerpo {
         padding: 16px 14px 20px;
-        min-height: 0;
+        /* Altura acotada también acá: si creciera con cada comando empujaría
+           el resto de la página en una pantalla donde ya hay poco alto. */
+        height: 320px;
         font-size: 0.76rem;
         line-height: 1.7;
     }
