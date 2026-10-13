@@ -1,0 +1,37 @@
+.seccion {
+    padding: 110px 0;
+    position: relative;
+}
+
+.contenedor {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+
+.eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.titulo {
+    font-size: clamp(30px, 4.2vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    margin-top: 12px;
+    max-width: 20ch;
+}
+
+@media (max-width: 900px) {
+    .seccion {
+        padding: 80px 0;
+    }
+
+    .contenedor {
+        padding: 0 20px;
+    }
+}

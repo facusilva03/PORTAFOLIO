@@ -40,7 +40,7 @@ const LINEAS = [
 ];
 
 /* Secciones a las que puede saltar `goto`, con el id real del DOM. */
-const SECCIONES = ['about', 'skills', 'works', 'services', 'contact'];
+const SECCIONES = ['about', 'skills', 'works', 'now', 'contact'];
 
 /*
   Cada comando devuelve las líneas a imprimir y, si hace falta, una acción
@@ -100,7 +100,7 @@ const COMANDOS = {
         descripcion: 'qué quedó de cada cátedra',
         correr: () => ({
             lineas: [
-                { texto: 'base de datos ii      logitrack · 3fn, triggers, procedimientos' },
+                { texto: 'base de datos ii      logitrack · 3fn, triggers, procedimiento, vista' },
                 { texto: 'sistemas operativos   ubuntu + active directory + ftp + proxy' },
                 { texto: '                      y la misma infra en windows server core', tenue: true },
                 { texto: 'redes i               osi/tcp-ip cruzado con herramientas por capa' },
@@ -314,10 +314,6 @@ const Terminal = () => {
 
     return (
         <div className={styles.wrap}>
-            {/* Mismo borde violeta desplazado que tenía la foto, para no
-                perder la identidad visual del resto del sitio. */}
-            <div className={styles.offsetBorder} aria-hidden="true"></div>
-
             <div className={styles.terminal}>
                 <div className={styles.barra} aria-hidden="true">
                     <span className={styles.punto}></span>

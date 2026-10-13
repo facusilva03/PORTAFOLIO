@@ -1,39 +1,110 @@
+/*
+  Tokens de diseño. Un solo acento (violeta); el verde es SOLO para "en
+  producción / en línea" y el ámbar SOLO para "en desarrollo".
+  Contrastes verificados contra --bg: texto 15.5, muted 6.9, acento 7.0.
+*/
+:root {
+  --bg: #0f0f12;
+  --surface: #17171c;
+  --surface-2: #1f1f26;
+  --border: #26262e;
+  --border-strong: #52525e;
+  --text: #e7e7ea;
+  --text-soft: #c3c3cc;
+  --muted: #9a9aa6;
+  --accent: #a78bfa;
+  --accent-2: #c4b5fd;
+  --live: #4ade80;
+  --wip: #fbbf24;
+  --danger: #f87171;
+  --sans: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  /* Posición de la luz de fondo; la actualiza App.jsx al mover el mouse. */
+  --mx: 50%;
+  --my: 30%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
+  /* La nav fija mide 56px: sin esto los títulos quedan tapados al saltar. */
+  scroll-padding-top: 56px;
 }
-html, body, #root {
-  height: 100%;
-  margin: 0;
-}
+
 body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-  background: #ffffff;
-  color: #0a0a0a;
-  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-.app-root {
-  display: flex;
-  min-height: 100vh;
-  background: #ffffff;
-  color: #0a0a0a;
+h1, h2, h3, h4, p {
+  margin: 0;
 }
 
-.main-content {
-  flex: 1;
-  /*
-    80px coincide exactamente con el width de la sidebar.
-    Si cambiás el ancho de la sidebar, cambiá este valor también.
-  */
-  margin-left: 80px;
-  box-sizing: border-box;
+a {
+  color: inherit;
 }
 
-@media (max-width: 768px) {
-  .main-content {
-    margin-left: 0;
-    padding-top: 60px; /* altura del top navbar mobile */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Fondo: una grilla tenue que solo se ve alrededor del mouse, más una luz
+   violeta muy suave. Ambas decoran, ninguna lleva información. */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+body::before {
+  z-index: -2;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.22;
+  -webkit-mask-image: radial-gradient(520px circle at var(--mx) var(--my), #000, transparent 75%);
+  mask-image: radial-gradient(520px circle at var(--mx) var(--my), #000, transparent 75%);
+}
+
+body::after {
+  z-index: -1;
+  background: radial-gradient(600px circle at var(--mx) var(--my), rgba(167, 139, 250, 0.1), transparent 70%);
+}
+
+/* Enlace para saltar la navegación con el teclado. */
+.saltar {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 13px;
+  border-radius: 8px;
+  transform: translateY(-200%);
+}
+
+.saltar:focus {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }

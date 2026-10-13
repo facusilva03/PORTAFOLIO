@@ -1,306 +1,264 @@
-/* ─────────────────────────────────────────
-   SECCIÓN WORKS — bento grid irregular
-───────────────────────────────────────── */
-.worksSection {
-    padding: 100px 6%;
-    background-color: #141414;
-    font-family: 'Space Grotesk', sans-serif;
-    min-height: 100vh;
-}
-
-/* ─── ENCABEZADO ─── */
-
-.sectionHeader {
-    margin-bottom: 56px;
-}
-
-.eyebrow {
-    font-size: 10.5px;
-    font-weight: 500;
-    color: #942dad;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 8px;
-}
-
-.sectionTitle {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.sectionTitle::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background-color: #2a2a2a;
-}
-
-/* ─── BENTO GRID ─── */
-
-/*
-  Grid de 3 columnas base.
-  Cada card declara cuántas columnas ocupa con .span1 / .span2 / .span3.
-  align-items: start hace que las cards no se estiren a la misma altura,
-  generando el efecto irregular.
-*/
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    align-items: start;
-}
-
-/* Spans de columna */
-.span1 { grid-column: span 1; }
-.span2 { grid-column: span 2; }
-.span3 { grid-column: span 3; }
-
-/* ─── CARD BASE ─── */
-
-.card {
-    background-color: #1a1a1a;
-    border: 1px solid #242424;
-    border-radius: 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    border-left: 3px solid #2a0a3a;
-    transition: border-left-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
-    animation: fadeSlideUp 0.5s ease both;
-}
-
-.card:hover {
-    border-left-color: #7a00ba;
-    border-color: #3a1a5a;
-    transform: translateY(-3px);
-}
-
-@keyframes fadeSlideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-.card:nth-child(1) { animation-delay: 0.05s; }
-.card:nth-child(2) { animation-delay: 0.18s; }
-.card:nth-child(3) { animation-delay: 0.30s; }
-.card:nth-child(4) { animation-delay: 0.40s; }
-
-/* ─── VARIANTES DE TAMAÑO ─── */
-
-/*
-  sizeLg: proyecto principal — padding generoso, título grande.
-  sizeMd: proyecto secundario — padding normal.
-  sizeSm: proyecto menor — padding compacto, tipografía reducida.
-*/
-.sizeLg {
-    padding: 36px 32px;
-    background-color: #1c0e2a;
-    border-color: #3a1055;
-    border-left-color: #5a008a;
-}
-
-.sizeLg:hover {
-    border-left-color: #9a00ea;
-    border-color: #5a1a8a;
-}
-
-.sizeLg .cardTitle { font-size: 1.55rem; }
-.sizeLg .cardNumber { font-size: 2.8rem; color: #3a1055; }
-.sizeLg .stackPill {
-    border-color: #3a1055;
-    color: #cc77ff;
-    background-color: #160a22;
-}
-
-.sizeMd {
-    padding: 28px 24px;
-}
-
-.sizeSm {
-    padding: 20px 18px;
-}
-
-.sizeSm .cardTitle { font-size: 1rem; }
-.sizeSm .cardDesc  { font-size: 0.76rem; }
-
-/* ─── ELEMENTOS DE CARD ─── */
-
-.cardTop {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.cardNumber {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #2a2a2a;
-    line-height: 1;
-    font-variant-numeric: tabular-nums;
-}
-
-/* Badge de estado — aparece en la esquina superior derecha */
-.statusBadge {
-    font-size: 0.68rem;
-    font-weight: 600;
-    color: #e0a020;
-    background-color: #2a1f00;
-    border: 1px solid #4a3500;
-    border-radius: 20px;
-    padding: 4px 10px;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-}
-
-/* Verde para lo que está en producción: el ámbar del badge base lee como
-   "todavía no terminado", que es lo contrario de lo que queremos decir. */
-.statusBadgeLive {
-    color: #4ade80;
-    background-color: #0b2416;
-    border-color: #1c4a2e;
-}
-
-.cardCategory {
-    font-size: 10px;
-    font-weight: 500;
-    color: #942dad;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    margin: 0;
-}
-
-.cardTitle {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #ffffff;
-    line-height: 1.3;
-    margin: 0;
-}
-
-.cardDesc {
-    font-size: 0.82rem;
-    color: #888888;
-    line-height: 1.75;
-    margin: 0;
-}
-
-/* ─── STACK PILLS ─── */
-
-.stackRow {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-top: 4px;
-}
-
-.stackPill {
-    font-size: 0.73rem;
-    font-weight: 500;
-    padding: 4px 11px;
-    border-radius: 5px;
-    border: 1px solid #2a2a2a;
-    color: #b0b0b0;
-    background-color: #141414;
-}
-
-/* ─── LINKS ─── */
-
-.linksRow {
+.tabs {
+    margin-top: 44px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 8px;
 }
 
-.linkBtn {
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s, background 0.2s;
+}
+
+.tab small {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+}
+
+.tab:hover {
+    color: var(--text);
+    transform: translateY(-2px);
+}
+
+.tab[aria-selected='true'] {
+    color: var(--text);
+    border-color: var(--accent);
+    background: var(--surface-2);
+}
+
+.punto {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.vivo { background: var(--live); }
+.enCurso { background: var(--wip); }
+
+.proyecto {
+    margin-top: 26px;
+    padding: 44px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: linear-gradient(180deg, var(--surface), #121216);
+}
+
+.contenido {
+    animation: aparecer 0.5s ease;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+}
+
+.cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.categoria {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.cabecera h3 {
+    margin-top: 8px;
+    font-size: clamp(28px, 3.6vw, 44px);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+}
+
+.badge {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-size: 0.76rem;
-    font-weight: 600;
-    color: #777777;
+    gap: 8px;
+    padding: 6px 13px;
+    font-family: var(--mono);
+    font-size: 12px;
+    border: 1px solid;
+    border-radius: 999px;
+}
+
+.badgeVivo {
+    color: var(--live);
+    border-color: rgba(74, 222, 128, 0.35);
+}
+
+.badgeCurso {
+    color: var(--wip);
+    border-color: rgba(251, 191, 36, 0.35);
+}
+
+.badgeVivo i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--live);
+    animation: pulso 1.8s ease-out infinite;
+}
+
+@keyframes pulso {
+    0%   { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6); }
+    100% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
+}
+
+.descripcion {
+    margin-top: 16px;
+    max-width: 66ch;
+    font-size: 16.5px;
+    line-height: 1.75;
+    color: var(--text-soft);
+}
+
+.stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 20px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.stack li {
+    padding: 5px 11px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    background: var(--surface-2);
+    border-radius: 999px;
+}
+
+.enlaces {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.enlaces a {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--accent-2);
     text-decoration: none;
-    padding: 7px 14px;
-    border: 1px solid #2a2a2a;
-    border-radius: 6px;
-    background-color: #141414;
-    transition: color 0.2s ease, border-color 0.2s ease;
+    border-bottom: 1px solid var(--accent);
 }
 
-.linkBtn:hover {
-    color: #ffffff;
-    border-color: #5a008a;
+.arquitectura {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 26px;
+    align-items: start;
+    margin-top: 44px;
 }
 
-/* Es un <button>, no un <a>: los botones no heredan la tipografía ni el
-   cursor, así que hay que declararlos para que se vea igual que sus vecinos. */
-.linkBtnCaso {
-    font-family: 'Space Grotesk', sans-serif;
-    cursor: pointer;
-    color: #cfcfcf;
-    border-color: #3a3a3a;
+.diagrama {
+    padding: 18px 18px 12px;
+    background: #0b0b0e;
+    border: 1px solid var(--border);
+    border-radius: 16px;
 }
 
-.linkBtnCaso:hover {
-    color: #ffffff;
-    border-color: #7a00ba;
-    background-color: #1c0e2a;
+.leyenda {
+    margin-bottom: 8px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
 }
 
-.linkBtnLive {
-    color: #cc77ff;
-    border-color: #3a1055;
-    background-color: #160a22;
+.detalle {
+    padding: 24px 24px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
 }
 
-.linkBtnLive:hover {
-    color: #dd99ff;
-    border-color: #7a00ba;
+.bloque + .bloque {
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
 }
 
-/* ─── MOBILE ─── */
-@media (max-width: 768px) {
-    .worksSection {
-        padding: 60px 20px;
-        min-height: unset;
-    }
+.tipo {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
 
-    .sectionHeader {
-        margin-bottom: 36px;
-    }
+.bloque h4 {
+    margin: 8px 0 10px;
+    font-size: 20px;
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+}
 
-    .sectionTitle {
-        font-size: 1.6rem;
-    }
+.bloque p:not(.tipo) {
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--text-soft);
+}
 
-    .grid {
-        grid-template-columns: 1fr;
-    }
+.repoNota {
+    margin-top: 24px;
+    max-width: 90ch;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--muted);
+}
 
-    /* Todos los spans colapsan a 1 columna */
-    .span1,
-    .span2,
-    .span3 {
-        grid-column: span 1;
-    }
-
-    .sizeLg {
-        padding: 24px 20px;
-    }
-
-    .sizeLg .cardTitle {
-        font-size: 1.25rem;
-    }
-
-    .sizeMd {
+@media (max-width: 900px) {
+    .proyecto {
         padding: 20px 16px;
     }
 
-    .sizeSm {
-        padding: 16px 14px;
+    .arquitectura {
+        grid-template-columns: 1fr;
+    }
+
+    /* En pantallas angostas el diagrama no se achica hasta volverse ilegible:
+       conserva un ancho mínimo y se desplaza dentro de su propia tarjeta. */
+    .diagrama {
+        overflow-x: auto;
+        padding: 14px 12px 8px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--border-strong) transparent;
+    }
+
+    .diagrama > svg {
+        min-width: 540px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .contenido,
+    .badgeVivo i {
+        animation: none;
+    }
+
+    .tab,
+    .tab:hover {
+        transition: none;
+        transform: none;
     }
 }

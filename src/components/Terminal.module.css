@@ -1,41 +1,25 @@
 /* ─────────────────────────────────────────
    TERMINAL DEL HERO
-   Reemplaza la foto de perfil. Mantiene el borde violeta desplazado
-   del diseño original para que no se sienta traída de otro sitio.
+   Es lo único que no tiene nadie más en su portafolio, así que se queda
+   quieta (sin inclinarse ni moverse) y se hace grande: se tiene que poder
+   leer sin esfuerzo.
 ───────────────────────────────────────── */
 
-/* El ancho era fijo en 440px, calculado para un área de ~1290px (1080p con
-   la sidebar). En pantallas más anchas eso dejaba un hueco grande entre el
-   nombre y la terminal. Ahora escala con el viewport: el mínimo conserva el
-   tamaño original y el máximo evita que se vuelva desproporcionada. */
 .wrap {
     position: relative;
-    width: clamp(440px, 34vw, 640px);
-    flex: 0 0 auto;
-}
-
-/* Mismo recurso visual que usaba la foto: un borde corrido en diagonal
-   que da profundidad sin sombras. */
-.offsetBorder {
-    position: absolute;
-    top: 16px;
-    left: 16px;
     width: 100%;
-    height: 100%;
-    border: 2.5px solid #5a008a;
-    z-index: 1;
 }
 
 .terminal {
     position: relative;
-    z-index: 2;
-    background-color: #0d0d12;
-    border: 1px solid #2a2a35;
-    /* Monoespaciada del sistema: no cargamos una fuente extra solo para esto. */
-    font-family: ui-monospace, 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+    background-color: #08080a;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 30px 90px -30px rgba(167, 139, 250, 0.35);
+    font-family: var(--mono);
     overflow: hidden;
-    /* El Hero centra el texto en mobile: una terminal con el contenido
-       centrado no parece una terminal, así que acá lo forzamos a la izquierda. */
+    /* El Hero puede centrar texto en mobile: una terminal centrada no parece
+       una terminal. */
     text-align: left;
 }
 
@@ -45,42 +29,38 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 11px 14px;
-    background-color: #16161d;
-    border-bottom: 1px solid #2a2a35;
+    padding: 14px 18px;
+    background-color: #0d0d10;
+    border-bottom: 1px solid var(--border);
 }
 
 .punto {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    background-color: #3a3a46;
+    background-color: #3f3f46;
 }
 
 .tituloBarra {
-    margin-left: auto;
-    font-size: 0.72rem;
-    color: #6b6b7b;
+    margin-left: 10px;
+    font-size: 0.78rem;
+    color: #8a8a96;
     letter-spacing: 0.5px;
 }
 
 /* ─── Cuerpo ─── */
 
-/* La tipografía acompaña al ancho: una terminal de 640px con texto de 0.86rem
-   se ve vacía. El min-height reserva la altura final para que el layout no
-   salte mientras se escribe, así que también tiene que escalar. */
-/* Altura fija en vez de min-height: ahora el contenido crece con cada
-   comando, así que la terminal scrollea por dentro en lugar de empujar el
-   layout del Hero hacia abajo. */
+/* Altura fija: el contenido crece con cada comando, así que la terminal
+   scrollea por dentro en vez de empujar el resto de la página. */
 .cuerpo {
-    padding: clamp(22px, 1.6vw, 30px) clamp(20px, 1.5vw, 28px) clamp(26px, 1.8vw, 34px);
-    height: clamp(330px, 21vw, 384px);
+    padding: 26px 26px 24px;
+    height: clamp(400px, 34vw, 520px);
     overflow-y: auto;
-    font-size: clamp(0.86rem, 0.55vw + 0.38rem, 1rem);
+    font-size: clamp(0.9rem, 0.5vw + 0.55rem, 1rem);
     line-height: 1.75;
     cursor: text;
     scrollbar-width: thin;
-    scrollbar-color: #2a2a35 transparent;
+    scrollbar-color: var(--border) transparent;
 }
 
 .cuerpo::-webkit-scrollbar {
@@ -88,7 +68,7 @@
 }
 
 .cuerpo::-webkit-scrollbar-thumb {
-    background-color: #2a2a35;
+    background-color: var(--border);
     border-radius: 3px;
 }
 
@@ -105,20 +85,20 @@
 }
 
 .prompt {
-    color: #c77dff;
+    color: var(--accent);
     font-weight: 700;
     flex: none;
 }
 
 .comando {
-    color: #f4f4f5;
+    color: var(--text);
 }
 
 .cursor {
     display: inline-block;
     width: 8px;
     height: 1.05em;
-    background-color: #c77dff;
+    background-color: var(--accent);
     transform: translateY(2px);
     animation: parpadeo 1.1s step-end infinite;
 }
@@ -130,8 +110,8 @@
 
 .salida {
     margin: 2px 0 0;
-    padding-left: 18px;
-    color: #a1a1aa;
+    padding-left: 20px;
+    color: #b4b4be;
     /* La lista de `help` alinea las columnas con espacios: sin pre-wrap el
        navegador los colapsa y la alineación se pierde. */
     white-space: pre-wrap;
@@ -139,27 +119,23 @@
 
 /* Lo único con color fuerte: el dato que más pesa (algo en producción). */
 .destacado {
-    color: #4ade80;
+    color: var(--live);
     font-weight: 500;
 }
 
 /* Texto secundario dentro de una salida: la lista de help, las aclaraciones. */
 .tenue {
-    color: #6b6b7b;
+    color: #8a8a96;
 }
 
 .error {
-    color: #f87171;
+    color: var(--danger);
 }
 
 /* ─── Prompt interactivo ─── */
 
-/*
-  El input tiene que desaparecer como control y leerse como una línea más de
-  la terminal: sin borde, sin fondo, heredando la tipografía. El foco se ve
-  por el cursor que parpadea al lado, no por un outline del navegador que
-  rompería la ilusión.
-*/
+/* El input tiene que leerse como una línea más de la terminal: sin borde, sin
+   fondo, heredando la tipografía. El foco se ve por el caret de color. */
 .input {
     flex: 1;
     min-width: 0;
@@ -167,30 +143,30 @@
     outline: none;
     background: transparent;
     padding: 0;
-    color: #f4f4f5;
+    color: var(--text);
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    caret-color: #c77dff;
+    caret-color: var(--accent);
 }
 
 /* Pista de uso. Aparece solo hasta el primer comando: después estorba. */
 .pista {
     margin: 0 0 10px;
-    font-size: 0.78em;
-    color: #5a5a6b;
+    font-size: 0.8em;
+    color: #8a8a96;
 }
 
 .pistaAccent {
-    color: #c77dff;
+    color: var(--accent);
 }
 
 .extra,
 .comentario {
     display: block;
-    color: #6b6b7b;
+    color: #8a8a96;
     font-weight: 400;
-    font-size: 0.8rem;
+    font-size: 0.85em;
 }
 
 .comentario {
@@ -198,8 +174,8 @@
     margin-left: 10px;
 }
 
-/* Texto que solo leen los lectores de pantalla: la animación es
-   aria-hidden, así que el contenido real tiene que estar acá. */
+/* Texto que solo leen los lectores de pantalla: la animación es aria-hidden,
+   así que el contenido real tiene que estar acá. */
 .soloLectores {
     position: absolute;
     width: 1px;
@@ -212,7 +188,6 @@
     border: 0;
 }
 
-/* Si el sistema pide menos movimiento, el cursor deja de parpadear. */
 @media (prefers-reduced-motion: reduce) {
     .cursor {
         animation: none;
@@ -220,26 +195,11 @@
 }
 
 /* ─── MOBILE ─── */
-@media (max-width: 768px) {
-    /* El borde va desplazado 8px hacia la derecha: si el wrap ocupa el 100%,
-       esos 8px se salen de la pantalla. El calc() los descuenta siempre, así
-       que funciona igual en 320px que en 768px. */
-    .wrap {
-        width: 100%;
-        max-width: min(328px, calc(100% - 8px));
-    }
-
-    .offsetBorder {
-        top: 8px;
-        left: 8px;
-    }
-
+@media (max-width: 900px) {
     .cuerpo {
-        padding: 16px 14px 20px;
-        /* Altura acotada también acá: si creciera con cada comando empujaría
-           el resto de la página en una pantalla donde ya hay poco alto. */
-        height: 320px;
-        font-size: 0.76rem;
+        padding: 18px 16px 20px;
+        height: 340px;
+        font-size: 0.8rem;
         line-height: 1.7;
     }
 
@@ -248,10 +208,6 @@
     }
 
     .barra {
-        padding: 9px 12px;
-    }
-
-    .tituloBarra {
-        font-size: 0.66rem;
+        padding: 11px 14px;
     }
 }

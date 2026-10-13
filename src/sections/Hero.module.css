@@ -1,230 +1,137 @@
-/* ─────────────────────────────────────────
-   SECCIÓN HERO — sidebar delgada 80px
-   Área disponible en 1080p ≈ 1290px
-───────────────────────────────────────── */
-.heroContainer {
+.hero {
     min-height: 100vh;
-    height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    /*
-      Con sidebar de 80px el área disponible es ≈1290px.
-      Padding generoso a ambos lados para que nada quede
-      pegado a los bordes. Derecho menor por la barra social.
-    */
-    padding: 0 110px 0 6%;
-    font-family: 'Space Grotesk', sans-serif;
-    overflow: hidden;
-    position: relative;
-    background-color: #ffffff;
+    padding: 120px 0 60px;
 }
 
-@keyframes fadeSlideUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
+.contenedor {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 48px;
+    align-items: center;
 }
 
-@keyframes fadeSlideRight {
-    from { opacity: 0; transform: translateX(50px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-
-
-/* ─── COLUMNA IZQUIERDA: texto ─── */
-
-.content {
-    flex: 0 0 auto;
-    text-align: left;
-    z-index: 2;
-}
-
-.introText {
-    font-size: 10.5px;
-    font-weight: 500;
-    letter-spacing: 4px;
+.eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #5a008a;
-    margin-bottom: 20px;
-    animation: fadeSlideUp 0.7s ease both;
-    animation-delay: 0.1s;
+    color: var(--accent);
 }
 
-/*
-  Con 1290px disponibles y la foto ocupando ~416px + gaps,
-  el texto tiene ≈720px. "FACUNDO" en Space Grotesk 900 a 7.5rem
-  ocupa ≈680px — llena bien sin desbordarse.
-*/
-.name {
-    font-size: 7.5rem;
-    font-weight: 900;
+.nombre {
+    margin: 18px 0 26px;
+    font-size: clamp(44px, 6.6vw, 100px);
     line-height: 0.92;
-    color: #000000;
-    margin: 0;
-    animation: fadeSlideUp 0.7s ease both;
-    animation-delay: 0.3s;
-}
-
-.lastName {
-    display: block;
-    color: #5a008a;
-    animation: fadeSlideUp 0.7s ease both;
-    animation-delay: 0.55s;
-}
-
-.description {
-    font-size: 1.05rem;
-    font-weight: 400;
-    color: #444444;
-    max-width: 440px;
-    line-height: 1.65;
-    margin-top: 24px;
-    margin-bottom: 36px;
-    animation: fadeSlideUp 0.7s ease both;
-    animation-delay: 0.75s;
-}
-
-.ctaButton {
-    display: inline-block;
-    text-decoration: none;
-    margin-bottom: 28px;
-    background-color: #5a008a;
-    color: #fff;
-    padding: 15px 46px;
-    font-size: 0.95rem;
     font-weight: 700;
-    font-family: 'Space Grotesk', sans-serif;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(90, 0, 138, 0.25);
-    animation: fadeSlideUp 0.7s ease both;
-    animation-delay: 0.9s;
+    letter-spacing: -0.045em;
 }
 
-.ctaButton:hover {
-    transform: translateY(-4px) scale(1.04);
-    background-color: #45006a;
-    box-shadow: 0 12px 28px rgba(90, 0, 138, 0.4);
+/* Cada fila del nombre es un bloque que nunca se parte: un apellido que baja
+   una línea más rompe el diseño entero. */
+.fila {
+    display: block;
+    white-space: nowrap;
 }
 
-.contactInfo {
+.apellido {
+    color: var(--accent);
+}
+
+.letra {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(60%) rotate(4deg);
+    animation: subir 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: calc(var(--i) * 55ms + 0.15s);
+}
+
+@keyframes subir {
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.lead {
+    font-size: 19px;
+    color: var(--muted);
+    max-width: 44ch;
+}
+
+.lead b {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.acciones {
     display: flex;
-    gap: 32px;
-    font-size: 0.85rem;
-    color: #666666;
-    font-weight: 400;
-    animation: fadeSlideUp 0.7s ease both;
-    animation-delay: 1.05s;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 34px 0 22px;
 }
 
-
-/* ─── COLUMNA DERECHA: terminal ───
-   El tamaño y el borde violeta viven en components/Terminal.module.css;
-   acá solo se posiciona la columna. */
-
-.imageContainer {
-    flex: 0 0 auto;
-    display: flex;
-    justify-content: center;
+.boton {
+    display: inline-flex;
     align-items: center;
-    animation: fadeSlideRight 0.9s ease both;
-    animation-delay: 0.35s;
-}
-
-
-/* ─── BARRA SOCIAL ─── */
-
-.socialBar {
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    align-items: center;
-    animation: fadeSlideUp 0.7s ease both;
-    animation-delay: 1.15s;
-}
-
-.socialIcon {
-    font-size: 1.25rem;
-    color: #555555;
-    transition: color 0.3s, transform 0.3s;
-    display: flex;
+    gap: 10px;
+    padding: 14px 22px;
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
     text-decoration: none;
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    transition: transform 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
 }
 
-.socialIcon:hover {
-    color: #5a008a;
-    transform: scale(1.2);
+.boton:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    color: var(--accent-2);
 }
 
-.socialLine {
-    width: 1.5px;
-    height: 70px;
-    background-color: #dddddd;
+.principal {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+    font-weight: 500;
 }
 
-/* ─── MOBILE ─── */
-@media (max-width: 768px) {
-    .heroContainer {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 40px 24px 60px;
-        gap: 36px;
-        height: auto;
-        min-height: calc(100svh - 60px);
-        text-align: center;
-        overflow: visible;
+.principal:hover {
+    background: var(--accent-2);
+    color: var(--bg);
+}
+
+.mail {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+}
+
+@media (max-width: 900px) {
+    .hero {
+        padding: 96px 0 48px;
+        min-height: 0;
     }
 
-    .content {
-        text-align: center;
-        width: 100%;
+    .contenedor {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+        gap: 40px;
     }
+}
 
-    .introText {
-        font-size: 9px;
-        letter-spacing: 2.5px;
-        margin-bottom: 14px;
-    }
-
-    .name {
-        font-size: clamp(2.6rem, 11vw, 3.5rem);
-    }
-
-    .description {
-        max-width: 100%;
-        font-size: 0.9rem;
-        margin-top: 16px;
-        margin-bottom: 24px;
-    }
-
-    .ctaButton {
-        padding: 12px 36px;
-        font-size: 0.88rem;
-        margin-bottom: 20px;
-    }
-
-    .contactInfo {
-        flex-direction: column;
-        gap: 6px;
-        font-size: 0.75rem;
-        align-items: center;
-    }
-
-    /* En mobile la terminal va abajo del texto: el nombre tiene que ser
-       lo primero que se ve, no el adorno. */
-    .imageContainer {
-        order: 1;
-        width: 100%;
-    }
-
-    .socialBar {
-        display: none;
+@media (prefers-reduced-motion: reduce) {
+    .letra {
+        opacity: 1;
+        transform: none;
+        animation: none;
     }
 }
