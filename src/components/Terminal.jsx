@@ -26,7 +26,7 @@ const LINEAS = [
         comando: 'cat stack.txt',
         salida: [
             { texto: 'python · php · javascript · sql' },
-            { texto: 'java · go', comentario: '# profundizando' },
+            { texto: 'java', comentario: '# profundizando' },
         ],
     },
     {

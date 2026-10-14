@@ -4,8 +4,7 @@ import styles from './Now.module.css';
 
 /*
   Solo entra lo que se puede comprobar hoy: el TP de Java existe en la
-  máquina y la ruta de ciberseguridad vive en un repositorio. Go no está
-  acá porque todavía no hay nada hecho en Go que lo respalde.
+  máquina y la ruta de ciberseguridad vive en un repositorio.
 */
 const AHORA = [
     {

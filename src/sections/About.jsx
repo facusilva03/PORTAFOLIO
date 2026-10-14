@@ -16,7 +16,7 @@ const About = () => (
                 <p>Me interesa entender cómo funcionan los sistemas en profundidad, cómo se construyen y cómo pueden ser vulnerados, para luego diseñarlos de forma más robusta.</p>
                 {/* Lo que se afirma acá tiene que coincidir con lo que muestran
                     los proyectos: son Django y Laravel, no Node. */}
-                <p>Hoy trabajo con Python y Django —tengo un sistema en producción, en uso diario— y con PHP y Laravel, siempre sobre bases de datos relacionales. En paralelo estoy profundizando en Java y Go.</p>
+                <p>Hoy trabajo con Python y Django —tengo un sistema en producción, en uso diario— y con PHP y Laravel, siempre sobre bases de datos relacionales. En paralelo estoy profundizando en Java.</p>
             </Reveal>
 
             <Reveal as="aside" className={styles.lateral} retraso={0.24}>
