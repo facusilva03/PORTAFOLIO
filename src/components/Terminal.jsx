@@ -53,13 +53,13 @@ const GRUPOS_SKILLS = [
     ...[...new Set(SKILLS.map((s) => s.area))].map((area) => ({
         clave: area,
         corto: area.split(' ').pop(),
-        filas: SKILLS.filter((s) => s.area === area).map((s) => [s.name, dondeSeUso(s.uso)]),
+        filas: SKILLS.filter((s) => s.area === area).map((s) => [s.name, dondeSeUso(s)]),
     })),
     { clave: 'nociones básicas', corto: 'nociones', filas: NOCIONES.map((nombre) => [nombre, '']) },
 ];
 
-function dondeSeUso(uso) {
-    if (uso === 'F') return 'facultad';
+function dondeSeUso({ uso, cursada }) {
+    if (uso === 'F') return cursada.toLowerCase();
     return [...uso].map((letra) => PROYECTOS[letra].toLowerCase()).join(' · ');
 }
 

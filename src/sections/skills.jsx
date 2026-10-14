@@ -21,13 +21,23 @@ const Nivel = ({ titulo, detalle, retraso, children }) => (
     </Reveal>
 );
 
-/* Acepta skills ({ name, featured }) o textos sueltos. */
-const Texto = ({ items, apilado = false }) => (
-    <ul className={`${styles.texto} ${apilado ? styles.apilado : ''}`}>
-        {items.map((item) => {
-            const { name, featured } = typeof item === 'string' ? { name: item, featured: false } : item;
-            return <li key={name} className={featured ? styles.destacada : ''}>{name}</li>;
-        })}
+/* Una skill por renglón: el nombre y, a la derecha, dónde se usó. Sirve igual para
+   las de proyectos (con qué proyecto) y para las de la cursada (en qué materia). */
+const Lista = ({ skills, detalle }) => (
+    <ul className={styles.grilla}>
+        {skills.map((s) => (
+            <li key={s.name} className={styles.item}>
+                <strong className={s.featured ? styles.destacada : ''}>{s.name}</strong>
+                <span>{detalle(s)}</span>
+            </li>
+        ))}
+    </ul>
+);
+
+/* Texto suelto, uno por renglón (hoy solo "Nociones básicas"). */
+const Texto = ({ items }) => (
+    <ul className={`${styles.texto} ${styles.apilado}`}>
+        {items.map((nombre) => <li key={nombre}>{nombre}</li>)}
     </ul>
 );
 
@@ -35,22 +45,15 @@ const Skills = () => (
     <Seccion id="skills" eyebrow="02 · Lo que sé hacer" titulo="Lo que uso, y dónde lo usé.">
         <div className={styles.niveles}>
             <Nivel titulo="En uso real" detalle="Con un proyecto que se puede abrir">
-                <ul className={styles.grilla}>
-                    {enUsoReal.map((s) => (
-                        <li key={s.name} className={styles.item}>
-                            <strong className={s.featured ? styles.destacada : ''}>{s.name}</strong>
-                            <span>{dondeSeUso(s.uso)}</span>
-                        </li>
-                    ))}
-                </ul>
+                <Lista skills={enUsoReal} detalle={(s) => dondeSeUso(s.uso)} />
             </Nivel>
 
             <Nivel titulo="De la cursada" detalle="Lo que vi o estoy viendo en la facultad" retraso={0.06}>
-                <Texto items={deLaCursada} />
+                <Lista skills={deLaCursada} detalle={(s) => s.cursada} />
             </Nivel>
 
             <Nivel titulo="Nociones básicas" detalle="Todavía sin proyecto" retraso={0.1}>
-                <Texto items={NOCIONES} apilado />
+                <Texto items={NOCIONES} />
             </Nivel>
         </div>
 

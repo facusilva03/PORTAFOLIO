@@ -3,7 +3,8 @@
   nociones básicas) no es una autoevaluación: sale de la evidencia que hay detrás.
 
     uso  Proyectos donde se usó, con una letra por proyecto (ver PROYECTOS),
-         o 'F' si solo apareció en un entregable de la facultad.
+         o 'F' si solo apareció en la facultad (en ese caso `cursada` dice en
+         qué materia o trabajo práctico).
     featured  "mayor dominio actual": solo donde hay algo concreto detrás.
     area      Solo la usa el comando `skills` de la terminal para agrupar el árbol
               (lenguajes, bases de datos, sistemas, redes, seguridad).
@@ -33,23 +34,23 @@ export const SKILLS = [
     { name: 'PHP / Laravel', area: 'lenguajes', featured: true, uso: 'LD' },
     { name: 'SQL', area: 'lenguajes', featured: false, uso: 'L' },
     { name: 'HTML / CSS', area: 'lenguajes', featured: false, uso: 'DW' },
-    { name: 'Java', area: 'lenguajes', featured: false, uso: 'F' },
+    { name: 'Java', area: 'lenguajes', featured: false, uso: 'F', cursada: 'TP de POO' },
     // Bases de datos
     { name: 'Diseño relacional (3FN)', area: 'bases de datos', featured: true, uso: 'L' },
     { name: 'Triggers y procedimientos', area: 'bases de datos', featured: true, uso: 'L' },
     { name: 'Transacciones e integridad', area: 'bases de datos', featured: false, uso: 'L' },
     { name: 'MariaDB · SQLite', area: 'bases de datos', featured: false, uso: 'PLD' },
     // Sistemas e infraestructura
-    { name: 'Linux (Kali · Ubuntu Server)', area: 'sistemas', featured: true, uso: 'F' },
-    { name: 'Active Directory', area: 'sistemas', featured: true, uso: 'F' },
-    { name: 'Servicios de red (FTP · Apache · Squid)', area: 'sistemas', featured: false, uso: 'F' },
-    { name: 'Virtualización', area: 'sistemas', featured: false, uso: 'F' },
+    { name: 'Linux (Kali · Ubuntu Server)', area: 'sistemas', featured: true, uso: 'F', cursada: 'Sistemas Operativos II' },
+    { name: 'Active Directory', area: 'sistemas', featured: true, uso: 'F', cursada: 'Sistemas Operativos II' },
+    { name: 'Servicios de red (FTP · Apache · Squid)', area: 'sistemas', featured: false, uso: 'F', cursada: 'Sistemas Operativos II' },
+    { name: 'Virtualización', area: 'sistemas', featured: false, uso: 'F', cursada: 'Sistemas Operativos II' },
     { name: 'Azure · Cloudflare', area: 'sistemas', featured: false, uso: 'P' },
     { name: 'Git · CI/CD', area: 'sistemas', featured: false, uso: 'PDW' },
     // Redes: lo que se cursa en Redes I (facultad)
-    { name: 'Modelo OSI / TCP-IP', area: 'redes', featured: true, uso: 'F' },
-    { name: 'Direccionamiento IP, subredes y máscaras', area: 'redes', featured: false, uso: 'F' },
-    { name: 'DHCP', area: 'redes', featured: false, uso: 'F' },
+    { name: 'Modelo OSI / TCP-IP', area: 'redes', featured: true, uso: 'F', cursada: 'Redes I' },
+    { name: 'Direccionamiento IP, subredes y máscaras', area: 'redes', featured: false, uso: 'F', cursada: 'Redes I' },
+    { name: 'DHCP', area: 'redes', featured: false, uso: 'F', cursada: 'Redes I' },
     // Seguridad
     { name: 'OWASP Top 10 aplicado', area: 'seguridad', featured: true, uso: 'P' },
     { name: 'Auditoría de código', area: 'seguridad', featured: false, uso: 'P' },
