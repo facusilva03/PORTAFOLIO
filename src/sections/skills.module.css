@@ -64,3 +64,24 @@
 .nota span {
     color: var(--accent-2);
 }
+
+@media (max-width: 640px) {
+    .grupos {
+        margin-top: 36px;
+        gap: 30px;
+    }
+
+    .categoria {
+        margin-bottom: 12px;
+    }
+
+    .chips {
+        gap: 8px;
+    }
+
+    .chip {
+        padding: 7px 13px;
+        font-size: 14px;
+        border-radius: 9px;
+    }
+}

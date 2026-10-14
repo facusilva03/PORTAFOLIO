@@ -250,6 +250,52 @@
     }
 }
 
+/* ─── Teléfono ─── */
+@media (max-width: 640px) {
+    /* Las pestañas dejan de partirse en tres filas: una sola tira que se
+       desliza, igual que las tarjetas de más abajo. */
+    .tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        margin: 32px -20px 0;
+        padding: 0 20px 4px;
+        scrollbar-width: none;
+    }
+
+    .tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab {
+        flex: none;
+        white-space: nowrap;
+    }
+
+    /* Sin marco: el contenido usa todo el ancho en vez de quedar angosto
+       dentro de una caja dentro de otra caja. */
+    .proyecto {
+        margin-top: 22px;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background: none;
+    }
+
+    .descripcion {
+        font-size: 15.5px;
+        line-height: 1.7;
+    }
+
+    /* El diagrama de nodos no se lee en este ancho: acá van las tarjetas. */
+    .arquitectura {
+        display: none;
+    }
+
+    .repoNota {
+        margin-top: 28px;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .contenido,
     .badgeVivo i {

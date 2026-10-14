@@ -1,0 +1,159 @@
+/* Solo se muestra en el teléfono; en pantallas más anchas está el diagrama. */
+.cartas {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .cartas {
+        display: block;
+        margin-top: 32px;
+    }
+}
+
+/* scroll-snap hace que cada gesto termine justo sobre una tarjeta. La tarjeta
+   ocupa casi todo el ancho y deja asomar el borde de la siguiente: avisa que
+   hay más. scroll-padding coincide con el padding para que la tarjeta encaje
+   alineada con el resto de la página. */
+.pista {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 20px;
+    scroll-padding: 0 20px;
+    margin: 0 -20px;
+    scrollbar-width: none;
+    transition: height 0.3s ease;
+}
+
+.pista::-webkit-scrollbar {
+    display: none;
+}
+
+.tarjeta {
+    flex: 0 0 calc(100% - 10px);
+    scroll-snap-align: start;
+    padding: 22px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    opacity: 0.55;
+    transition: opacity 0.3s, border-color 0.3s;
+}
+
+.activa {
+    opacity: 1;
+    border-color: var(--accent);
+}
+
+.paso {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.tarjeta h4 {
+    margin-top: 8px;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.sub {
+    margin-top: 2px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.que {
+    margin-top: 14px;
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--text-soft);
+}
+
+.porque {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.tipo {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.porque h5 {
+    margin: 6px 0 8px;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.porque p:not(.tipo) {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--muted);
+}
+
+.controles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+}
+
+.puntos {
+    display: flex;
+    gap: 7px;
+}
+
+.punto,
+.puntoActivo {
+    height: 6px;
+    border-radius: 999px;
+    background: var(--border-strong);
+    transition: width 0.25s, background 0.25s;
+    width: 6px;
+}
+
+.puntoActivo {
+    width: 20px;
+    background: var(--accent);
+}
+
+/* 44px es el mínimo cómodo para tocar con el dedo. */
+.flecha {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.flecha:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pista,
+    .tarjeta,
+    .punto,
+    .puntoActivo {
+        transition: none;
+    }
+}

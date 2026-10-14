@@ -12,6 +12,9 @@
 
   col (0-2) y fila posicionan el nodo en la grilla. enlaces son pares de ids
   entre los que viaja un paquete animado.
+
+  El ORDEN del array nodos es el orden del recorrido: en el teléfono cada nodo
+  es una tarjeta y se pasan deslizando en ese orden.
 */
 export const DIAGRAMAS = {
     '01': {
@@ -20,9 +23,9 @@ export const DIAGRAMAS = {
             { id: 'V', col: 0, fila: 0, titulo: 'Visitante', sub: 'dominio propio', que: 'Entra por el dominio propio, no por la dirección que da el hosting.' },
             { id: 'A', col: 1, fila: 0, titulo: 'Acceso', sub: 'lista de correos', que: 'Filtra por una lista de correos autorizados antes de que aparezca el login.', refs: ['d2'] },
             { id: 'W', col: 2, fila: 0, titulo: 'Worker', sub: 'Cloudflare', que: 'Recibe el dominio y reescribe la cabecera Host hacia el hosting.', refs: ['o1'] },
-            { id: 'R', col: 0, fila: 1, titulo: 'Respaldos', sub: 'cifrados · copy', que: 'Sube copias cifradas de la base a la nube de forma automática.', refs: ['d3'] },
-            { id: 'S', col: 1, fila: 1, titulo: 'SQLite', sub: 'sobrevive al deploy', que: 'Guarda los datos en la partición que sobrevive a cada despliegue.', refs: ['d1', 'o0'] },
             { id: 'D', col: 2, fila: 1, titulo: 'Django', sub: 'Azure · Decimal', que: 'La aplicación: calcula la amortización en Decimal y exige el secreto que agrega el proxy.', refs: ['o2', 'd0'] },
+            { id: 'S', col: 1, fila: 1, titulo: 'SQLite', sub: 'sobrevive al deploy', que: 'Guarda los datos en la partición que sobrevive a cada despliegue.', refs: ['d1', 'o0'] },
+            { id: 'R', col: 0, fila: 1, titulo: 'Respaldos', sub: 'cifrados · copy', que: 'Sube copias cifradas de la base a la nube de forma automática.', refs: ['d3'] },
             { id: 'AU', col: 1, fila: 2, titulo: 'Auditoría', sub: 'con IA, verificada', que: 'Revisión del código asistida por IA, verificada hallazgo por hallazgo.', refs: ['o3'] },
             { id: 'CI', col: 2, fila: 2, titulo: 'GitHub Actions', sub: 'tests · bloquea deploy', que: 'Corre los tests en cada push y bloquea el despliegue si alguno falla.', refs: ['estado'] },
         ],
@@ -58,9 +61,9 @@ export const DIAGRAMAS = {
             { id: 'V', col: 0, fila: 0, titulo: 'Visitante', sub: 'navegador', que: 'Recibe un sitio estático: no hay servidor propio detrás.' },
             { id: 'S', col: 1, fila: 0, titulo: 'Sitio estático', sub: 'sin backend', que: 'React y Vite con CSS Modules. El contenido cambia cuando se edita el código.', refs: ['d0', 'd1'] },
             { id: 'E', col: 2, fila: 0, titulo: 'EmailJS', sub: 'formulario externo', que: 'El formulario de contacto sale por un servicio externo.', refs: ['d0'] },
-            { id: 'B', col: 0, fila: 1, titulo: 'Pantalla real', sub: '360 px', que: 'Los cambios se revisan con capturas reales en tamaño de teléfono.', refs: ['o0'] },
             { id: 'T', col: 1, fila: 1, titulo: 'Terminal', sub: 'accesible', que: 'Intro animada y después un prompt real con comandos que llevan a cada sección.', refs: ['d2', 'd3'] },
             { id: 'P', col: 2, fila: 1, titulo: 'Vercel', sub: 'deploy en cada push', que: 'Cada push a la rama principal vuelve a desplegar el sitio.', refs: ['estado'] },
+            { id: 'B', col: 0, fila: 1, titulo: 'Pantalla real', sub: '360 px', que: 'Los cambios se revisan con capturas reales en tamaño de teléfono.', refs: ['o0'] },
         ],
         enlaces: [['V', 'S'], ['S', 'E'], ['S', 'T'], ['P', 'S'], ['B', 'T']],
     },
