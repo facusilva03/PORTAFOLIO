@@ -27,7 +27,7 @@ export const SKILLS = [
             { name: 'Diseño relacional (3FN)', featured: true },
             { name: 'Triggers y procedimientos', featured: true },
             { name: 'Transacciones e integridad', featured: false },
-            { name: 'MariaDB · SQLite · PostgreSQL', featured: false },
+            { name: 'MariaDB · SQLite', featured: false },
         ],
     },
     {
