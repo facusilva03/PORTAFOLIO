@@ -4,7 +4,9 @@ import styles from './Now.module.css';
 
 /*
   Solo entra lo que se puede comprobar hoy: el TP de Java existe en la
-  máquina y la ruta de ciberseguridad vive en un repositorio.
+  máquina, la ruta de ciberseguridad vive en un repositorio y Redes I es una
+  materia que Facu está cursando (lo dijo él: direccionamiento IP, hosts,
+  subredes, máscaras, DHCP y las capas del modelo OSI).
 */
 const AHORA = [
     {
@@ -18,6 +20,12 @@ const AHORA = [
         titulo: 'Ruta de estudio propia, documentada en un repositorio',
         texto: 'Fundamentos de Linux terminado: procesos, almacenamiento y labs aislados. Ahora, redes: el modelo OSI/TCP-IP aplicado a seguridad.',
         estado: '02 · redes',
+    },
+    {
+        area: 'Redes I',
+        titulo: 'Redes, en la facultad',
+        texto: 'Direccionamiento IP, hosts, subredes y máscaras, DHCP y todas las capas del modelo OSI.',
+        estado: 'cursando',
     },
 ];
 

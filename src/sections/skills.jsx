@@ -45,7 +45,7 @@ const Skills = () => (
                 </ul>
             </Nivel>
 
-            <Nivel titulo="De la cursada" detalle="Entregables de la facultad" retraso={0.06}>
+            <Nivel titulo="De la cursada" detalle="Lo que vi o estoy viendo en la facultad" retraso={0.06}>
                 <Texto items={deLaCursada} />
             </Nivel>
 

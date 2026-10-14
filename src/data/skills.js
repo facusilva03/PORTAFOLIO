@@ -6,16 +6,18 @@
          o 'F' si solo apareció en un entregable de la facultad.
     featured  "mayor dominio actual": solo donde hay algo concreto detrás.
     area      Solo la usa el comando `skills` de la terminal para agrupar el árbol
-              (lenguajes, bases de datos, sistemas, seguridad).
+              (lenguajes, bases de datos, sistemas, redes, seguridad).
 
   REGLA: nada entra sin respaldo. PostgreSQL, Go, Node.js y TypeScript no
-  están porque no hay nada hecho con ellos. Wireshark, tcpdump, nmap y el
-  subnetting tampoco: no se usaron en ningún proyecto ni se están viendo, así
-  que no figuran en ningún lado (ni siquiera como "en estudio"). C tiene
-  nociones básicas y ningún proyecto: va en NOCIONES.
+  están porque no hay nada hecho con ellos. Wireshark, tcpdump y nmap tampoco:
+  no se usaron en ningún proyecto ni se están viendo, así que no figuran en
+  ningún lado (ni siquiera como "en estudio"). En cambio el direccionamiento
+  IP, las subredes, las máscaras, DHCP y el modelo OSI SÍ se están cursando en
+  Redes I: van como 'F' (de la cursada), sin proyecto. C tiene nociones
+  básicas y ningún proyecto: va en NOCIONES.
 
   El orden del array es el orden de lectura: lenguajes, bases de datos,
-  sistemas, seguridad.
+  sistemas, redes, seguridad.
 */
 export const PROYECTOS = {
     P: 'Préstamos',
@@ -41,10 +43,13 @@ export const SKILLS = [
     { name: 'Linux (Kali · Ubuntu Server)', area: 'sistemas', featured: true, uso: 'F' },
     { name: 'Active Directory', area: 'sistemas', featured: true, uso: 'F' },
     { name: 'Servicios de red (FTP · Apache · Squid)', area: 'sistemas', featured: false, uso: 'F' },
-    { name: 'Modelo OSI / TCP-IP', area: 'sistemas', featured: true, uso: 'F' },
     { name: 'Virtualización', area: 'sistemas', featured: false, uso: 'F' },
     { name: 'Azure · Cloudflare', area: 'sistemas', featured: false, uso: 'P' },
     { name: 'Git · CI/CD', area: 'sistemas', featured: false, uso: 'PDW' },
+    // Redes: lo que se cursa en Redes I (facultad)
+    { name: 'Modelo OSI / TCP-IP', area: 'redes', featured: true, uso: 'F' },
+    { name: 'Direccionamiento IP, subredes y máscaras', area: 'redes', featured: false, uso: 'F' },
+    { name: 'DHCP', area: 'redes', featured: false, uso: 'F' },
     // Seguridad
     { name: 'OWASP Top 10 aplicado', area: 'seguridad', featured: true, uso: 'P' },
     { name: 'Auditoría de código', area: 'seguridad', featured: false, uso: 'P' },
