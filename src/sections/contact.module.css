@@ -161,13 +161,27 @@ a.via:hover {
 }
 
 @media (max-width: 900px) {
+    /* minmax(0, 1fr) y no 1fr: un 1fr no puede ser más angosto que su contenido,
+       y el email (una sola palabra) más el botón "copiar" ensanchaban la columna
+       más allá de la pantalla en los celulares más chicos (320px). */
     .columnas {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 36px;
     }
 
     .fila {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* Si el email y el botón no entran juntos, el botón baja a otra línea. */
+    .via {
+        flex-wrap: wrap;
+        row-gap: 8px;
+    }
+
+    .via > span:first-child {
+        min-width: 0;
+        overflow-wrap: anywhere;
     }
 
     .form {
