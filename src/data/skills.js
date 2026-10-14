@@ -31,20 +31,12 @@ export const SKILLS = [
         ],
     },
     {
-        category: 'Redes',
-        items: [
-            { name: 'Modelo OSI / TCP-IP', featured: true },
-            { name: 'Direccionamiento y subnetting', featured: false },
-            { name: 'Análisis de tráfico', featured: false },
-            { name: 'Wireshark · tcpdump · nmap', featured: false },
-        ],
-    },
-    {
         category: 'Sistemas e infraestructura',
         items: [
             { name: 'Linux (Kali · Ubuntu Server)', featured: true },
             { name: 'Active Directory', featured: true },
             { name: 'Servicios de red (FTP · Apache · Squid)', featured: false },
+            { name: 'Modelo OSI / TCP-IP', featured: true },
             { name: 'Virtualización', featured: false },
             { name: 'Azure · Cloudflare', featured: false },
             { name: 'Git · CI/CD', featured: false },
