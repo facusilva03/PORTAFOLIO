@@ -1,6 +1,6 @@
 /*
-  Cada skill lleva DÓNDE se usó. El nivel (en uso real / de la cursada / en
-  estudio) no es una autoevaluación: sale de la evidencia que hay detrás.
+  Cada skill lleva DÓNDE se usó. El nivel (en uso real / de la cursada /
+  nociones básicas) no es una autoevaluación: sale de la evidencia que hay detrás.
 
     uso  Proyectos donde se usó, con una letra por proyecto (ver PROYECTOS),
          o 'F' si solo apareció en un entregable de la facultad.
@@ -9,9 +9,10 @@
               (lenguajes, bases de datos, sistemas, seguridad).
 
   REGLA: nada entra sin respaldo. PostgreSQL, Go, Node.js y TypeScript no
-  están porque no hay nada hecho con ellos. C, Wireshark, tcpdump, nmap y el
-  subnetting se estudiaron pero no hay ningún proyecto que los use: van en
-  EN_ESTUDIO, no como skills.
+  están porque no hay nada hecho con ellos. Wireshark, tcpdump, nmap y el
+  subnetting tampoco: no se usaron en ningún proyecto ni se están viendo, así
+  que no figuran en ningún lado (ni siquiera como "en estudio"). C tiene
+  nociones básicas y ningún proyecto: va en NOCIONES.
 
   El orden del array es el orden de lectura: lenguajes, bases de datos,
   sistemas, seguridad.
@@ -51,10 +52,9 @@ export const SKILLS = [
     { name: 'Despliegue seguro y respaldos', area: 'seguridad', featured: false, uso: 'P' },
 ];
 
-/* Estudiado, sin un solo proyecto que lo use todavía. */
-export const EN_ESTUDIO = [
+/* Conocimientos básicos, sin un solo proyecto que los use todavía. */
+export const NOCIONES = [
     'C (nivel básico)',
-    'Redes: nmap, Wireshark y subnetting',
 ];
 
 /* Qué quedó construido en cada cátedra: el entregable, no la nota ni el año. */
@@ -75,7 +75,7 @@ export const FORMACION = [
         materia: 'Redes I',
         carrera: 'Lic. en Sistemas de Información · Universidad Champagnat',
         resultado:
-            'Documentación propia que cruza el modelo OSI/TCP-IP con las técnicas y herramientas que operan en cada capa, de ARP spoofing a los tipos de escaneo de nmap.',
+            'Documentación propia que cruza el modelo OSI/TCP-IP con las técnicas que operan en cada capa.',
     },
     {
         materia: 'Sistemas Operativos I · Arquitectura',

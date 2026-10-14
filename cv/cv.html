@@ -16,10 +16,10 @@
   Regenerar el PDF (también limpia los metadatos del navegador): ./cv/generar.sh
 
   REGLA: lo que se afirma acá tiene que poder señalarse en un repo real.
-  La experiencia, la secundaria y las habilidades personales vienen del CV
-  anterior y no se pueden comprobar desde el código. Lo que solo se estudió
-  (nmap, Wireshark) va como "en estudio", no como habilidad. Sin teléfono:
-  este PDF es público. El único enlace es "Mi portafolio".
+  La experiencia y la secundaria son reales (Facu lo confirmó el 2026-10-14)
+  pero no se pueden comprobar desde el código. nmap, Wireshark y subnetting no
+  figuran: no se usaron ni se están viendo. Sin teléfono: este PDF es público.
+  El único enlace es "Mi portafolio".
 */
 @page { size: A4; margin: 0; }
 :root { --navy: #1c2b46; --azul: #2f5d9e; --suave: #5a6678; --fondo: #edf1f7; --regla: #cfd8e6; }
@@ -44,7 +44,6 @@ h2 { font-family: 'Montserrat', sans-serif; font-size: 7.6pt; font-weight: 700; 
 .grupo dt { font-size: 7.4pt; font-weight: 600; letter-spacing: .02em; color: var(--azul); }
 .grupo dd { font-size: 8.3pt; line-height: 1.38; }
 .personales { font-size: 8.3pt; line-height: 1.5; }
-.estudio { margin-top: 2mm; font-size: 8.3pt; }
 
 /* ── columna principal ── */
 .principal { padding: 13mm 14mm 0 11mm; }
@@ -89,7 +88,6 @@ h1 { font-family: 'Montserrat', sans-serif; font-size: 29pt; line-height: 1; fon
     <div class="grupo"><dt>Herramientas</dt><dd>Git y GitHub (GitFlow), GitHub Actions, Azure, Cloudflare</dd></div>
     <div class="grupo"><dt>Hardware</dt><dd>Diagnóstico y reparación de celulares</dd></div>
   </dl>
-  <p class="estudio"><strong style="font-weight:600;color:var(--azul);font-size:7.4pt">En estudio:</strong> redes (nmap, Wireshark) y Java.</p>
 
   <h2>Personales</h2>
   <p class="personales">Responsabilidad y compromiso, trabajo en equipo, resolución de problemas, capacidad de aprendizaje, adaptabilidad al cambio, orientación a resultados, proactividad.</p>

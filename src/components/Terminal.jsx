@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './Terminal.module.css';
-import { SKILLS, PROYECTOS, EN_ESTUDIO } from '../data/skills';
+import { SKILLS, PROYECTOS, NOCIONES } from '../data/skills';
 
 /*
   Terminal del Hero. Primero corre una intro animada; cuando termina, queda
@@ -48,12 +48,14 @@ const SECCIONES = ['about', 'skills', 'works', 'now', 'contact'];
   fuente que la sección Skills: lo que dice la terminal y lo que dice la página
   no se pueden contradecir.
 */
+/* clave = el título que se imprime; corto = la palabra que se ofrece en la ayuda. */
 const GRUPOS_SKILLS = [
     ...[...new Set(SKILLS.map((s) => s.area))].map((area) => ({
         clave: area,
+        corto: area.split(' ').pop(),
         filas: SKILLS.filter((s) => s.area === area).map((s) => [s.name, dondeSeUso(s.uso)]),
     })),
-    { clave: 'en estudio', filas: EN_ESTUDIO.map((nombre) => [nombre, '']) },
+    { clave: 'nociones básicas', corto: 'nociones', filas: NOCIONES.map((nombre) => [nombre, '']) },
 ];
 
 function dondeSeUso(uso) {
@@ -122,7 +124,7 @@ const COMANDOS = {
         descripcion: 'con qué trabajo, y dónde lo usé',
         correr: (args) => {
             const filtro = (args[0] || '').toLowerCase();
-            const claves = GRUPOS_SKILLS.map((g) => g.clave.split(' ').pop());
+            const claves = GRUPOS_SKILLS.map((g) => g.corto);
             const elegidos = filtro ? GRUPOS_SKILLS.filter((g) => coincide(g.clave, filtro)) : GRUPOS_SKILLS;
 
             if (!elegidos.length) {
@@ -170,7 +172,7 @@ const COMANDOS = {
                 { texto: 'base de datos ii      logitrack · 3fn, triggers, procedimiento, vista' },
                 { texto: 'sistemas operativos   ubuntu + active directory + ftp + proxy' },
                 { texto: '                      y la misma infra en windows server core', tenue: true },
-                { texto: 'redes i               osi/tcp-ip cruzado con herramientas por capa' },
+                { texto: 'redes i               osi/tcp-ip cruzado con técnicas por capa' },
                 { texto: 'arquitectura          binario, hex, complemento a 2, ieee-754' },
             ],
         }),

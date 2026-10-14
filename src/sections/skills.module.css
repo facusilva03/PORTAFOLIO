@@ -57,7 +57,7 @@
     color: var(--accent-2);
 }
 
-/* ─── De la cursada y En estudio: texto corrido ─── */
+/* ─── De la cursada y Nociones básicas: texto corrido ─── */
 /* Los nombres se separan con espacio, no con puntos: un punto separador
    queda colgado al final del renglón cuando el texto se corta. */
 .texto {

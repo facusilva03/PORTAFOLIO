@@ -1,11 +1,11 @@
 import Seccion from '../components/Seccion';
 import Reveal from '../components/Reveal';
-import { SKILLS, PROYECTOS, EN_ESTUDIO } from '../data/skills';
+import { SKILLS, PROYECTOS, NOCIONES } from '../data/skills';
 import styles from './skills.module.css';
 
 /* El nivel de cada skill sale de la evidencia, no de una autoevaluación:
-   con proyecto detrás, solo de un entregable de la facultad, o todavía en
-   estudio. Ver el criterio en src/data/skills.js. */
+   con proyecto detrás, solo de un entregable de la facultad, o apenas
+   nociones básicas. Ver el criterio en src/data/skills.js. */
 const enUsoReal = SKILLS.filter((s) => /[PLDW]/.test(s.uso));
 const deLaCursada = SKILLS.filter((s) => s.uso === 'F');
 
@@ -49,8 +49,8 @@ const Skills = () => (
                 <Texto items={deLaCursada} />
             </Nivel>
 
-            <Nivel titulo="En estudio" detalle="Todavía sin proyecto" retraso={0.1}>
-                <Texto items={EN_ESTUDIO} apilado />
+            <Nivel titulo="Nociones básicas" detalle="Todavía sin proyecto" retraso={0.1}>
+                <Texto items={NOCIONES} apilado />
             </Nivel>
         </div>
 
