@@ -1,14 +1,18 @@
-.grupos {
-    margin-top: 54px;
+.niveles {
+    margin-top: 48px;
     display: grid;
-    gap: 44px;
+    gap: 48px;
 }
 
-.categoria {
+.cabecera {
     display: flex;
     align-items: baseline;
-    gap: 12px;
-    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    margin-bottom: 18px;
+}
+
+.cabecera h3 {
     font-family: var(--mono);
     font-size: 12px;
     font-weight: 400;
@@ -17,46 +21,66 @@
     color: var(--accent);
 }
 
-.categoria small {
-    font-size: 12px;
-    letter-spacing: 0.06em;
+.cabecera p {
+    font-size: 15px;
     color: var(--muted);
 }
 
-.chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+/* ─── En uso real: grilla con el proyecto debajo de cada skill ─── */
+.grilla {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 28px;
 }
 
-.chip {
-    padding: 9px 17px;
-    font-size: 15px;
-    color: var(--text);
-    background: var(--surface);
-    border: 1px solid var(--border-strong);
-    border-radius: 10px;
-    cursor: default;
-    transition: transform 0.2s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+.item {
+    padding: 13px 0;
+    border-top: 1px solid var(--border);
 }
 
-.chip:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent);
-    background: var(--surface-2);
-    box-shadow: 0 10px 24px -12px rgba(167, 139, 250, 0.6);
+.item strong {
+    display: block;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
 }
 
-.destacado {
-    border-color: var(--accent);
+.item span {
+    font-size: 13.5px;
+    color: var(--muted);
+}
+
+.destacada {
     color: var(--accent-2);
 }
 
+/* ─── De la cursada y En estudio: texto corrido ─── */
+/* Los nombres se separan con espacio, no con puntos: un punto separador
+   queda colgado al final del renglón cuando el texto se corta. */
+.texto {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 26px;
+    max-width: 70ch;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-soft);
+}
+
+/* Pocos ítems y largos: uno por renglón. */
+.apilado {
+    flex-direction: column;
+    gap: 4px;
+}
+
 .nota {
-    margin-top: 30px;
+    margin-top: 40px;
     font-size: 14px;
     color: var(--muted);
 }
@@ -65,23 +89,55 @@
     color: var(--accent-2);
 }
 
+@media (max-width: 900px) {
+    .grilla {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 @media (max-width: 640px) {
-    .grupos {
-        margin-top: 36px;
-        gap: 30px;
+    .niveles {
+        margin-top: 30px;
+        gap: 34px;
     }
 
-    .categoria {
+    .cabecera {
         margin-bottom: 12px;
     }
 
-    .chips {
-        gap: 8px;
+    .grilla {
+        grid-template-columns: 1fr;
     }
 
-    .chip {
-        padding: 7px 13px;
-        font-size: 14px;
-        border-radius: 9px;
+    /* En el teléfono el proyecto va a la derecha del nombre, en la misma línea:
+       apilado ocupaba un renglón más por cada skill y la sección crecía mucho. */
+    .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        padding: 9px 0;
+    }
+
+    .item strong {
+        flex: 1 1 0;
+        min-width: 0;
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    /* El proyecto toma el ancho que necesita (hasta la mitad): así
+       "DeleitarTE · Portafolio" no se parte en dos renglones. */
+    .item span {
+        flex: 0 0 auto;
+        max-width: 52%;
+        font-size: 12.5px;
+        line-height: 1.4;
+        text-align: right;
+    }
+
+    .texto {
+        font-size: 16px;
+        line-height: 1.8;
     }
 }

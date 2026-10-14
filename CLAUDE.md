@@ -23,7 +23,7 @@ Portafolio profesional de Facundo Silva, estudiante de Sistemas y Ciberseguridad
 Una sola página sin router. `src/App.jsx` arma `Nav`, las secciones (`Hero, About, Skills, Works, Now, Contact`) y `Footer`. Navegación por anclas (`#home … #contact`).
 
 - **Estilos:** CSS Modules por componente + tokens en `src/index.css` (`--accent`, `--bg`…). Tema oscuro con un solo acento violeta; verde solo para "en producción/en línea", ámbar solo para "en desarrollo". Sin Tailwind en uso (`public/tailwind.css` es un resto sin importar).
-- **El contenido vive en `src/data/`**, no en el JSX: `works.js` (proyectos y sus casos de estudio), `diagramas.js` (diagramas), `skills.js` (skills y formación aplicada).
+- **El contenido vive en `src/data/`**, no en el JSX: `works.js` (proyectos y sus casos de estudio), `diagramas.js` (diagramas), `skills.js` (skills, formación aplicada y lo que está "en estudio").
 - **Works ↔ diagramas:** cada nodo de `diagramas.js` apunta al caso de `works.js` **por posición**: `d2` = `decisiones[2]`, `o0` = `obstaculos[0]`, `estado`. Si se reordena o se agrega una decisión/obstáculo, hay que revisar los diagramas. El texto "que" de cada nodo resume el caso: si el caso cambia, que el diagrama siga diciendo lo mismo.
 - **Teléfono (≤640px):** el diagrama se oculta y `FlowCards` muestra una tarjeta por nodo, que se desliza con `scroll-snap`, más botones anterior/siguiente (quien navega con teclado no puede deslizar). **El orden del array `nodos` en `diagramas.js` es el orden de las tarjetas**: ponerlo en el orden del recorrido. Entre 641 y 900px sigue el diagrama, con su propio scroll interno.
 - **Terminal** (`components/Terminal.jsx`): intro que se escribe sola y después un prompt real. Todo corre en el navegador. El input nunca se enfoca solo, respeta `prefers-reduced-motion` y su contenido existe como texto para lectores de pantalla. Los comandos `goto` usan los `id` reales de las secciones (`SECCIONES`).
@@ -39,6 +39,7 @@ Una sola página sin router. `src/App.jsx` arma `Nav`, las secciones (`Hero, Abo
 
 ## Reglas de contenido
 
+- **Skills en tres niveles (decisión 2026-10-14):** *en uso real* (con proyecto: cada skill nombra dónde se usó, con una letra por proyecto en `uso`), *de la cursada* (`uso: 'F'`, solo un entregable de la facultad) y *en estudio* (`EN_ESTUDIO`, sin proyecto). El nivel sale de la evidencia, nunca de una autoevaluación: no hay barras ni porcentajes. Se descartaron los chips, una matriz skill × proyecto (en 360px solo se veía una columna) y un árbol tipo terminal (el texto se cortaba). En el teléfono cada skill va en una sola línea con el proyecto a la derecha.
 - **Skills solo con evidencia.** PostgreSQL y Go salieron por no tener nada detrás; GitFlow se queda porque DeleitarTE tiene `develop`, `feature/*`, `hotfix/*` y `release/*`. Lo que solo se estudió (nmap, Wireshark) va como "en estudio", no como habilidad.
 - Toda tecnología, logro o cifra tiene que poder señalarse en un repo real. Nada inventado: ni métricas, ni "disponible", ni tiempos de respuesta. Lo que no tiene respaldo se saca.
 - Antes de editar About, Works, Skills o la terminal, **verificar la afirmación contra el código** (skill `verificar-afirmaciones`). Ya se corrigieron así: "un trigger" (son dos), "sin JavaScript" (hay un mapa con Leaflet) y un procedimiento que decía hacer algo que no hacía.
