@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Facundo Silva — CV</title>
+<meta name="author" content="Facundo Silva">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/*
+  CV de una página, A4, en dos columnas: una barra lateral clara con la foto,
+  el contacto y las habilidades, y la columna principal con el perfil, la
+  educación, la experiencia y los proyectos. Texto real, no imágenes.
+
+  Regenerar el PDF (también limpia los metadatos del navegador): ./cv/generar.sh
+
+  REGLA: lo que se afirma acá tiene que poder señalarse en un repo real.
+  La experiencia, la secundaria y las habilidades personales vienen del CV
+  anterior y no se pueden comprobar desde el código. Lo que solo se estudió
+  (nmap, Wireshark) va como "en estudio", no como habilidad. Sin teléfono:
+  este PDF es público. El único enlace es "Mi portafolio".
+*/
+@page { size: A4; margin: 0; }
+:root { --navy: #1c2b46; --azul: #2f5d9e; --suave: #5a6678; --fondo: #edf1f7; --regla: #cfd8e6; }
+* { box-sizing: border-box; margin: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { width: 210mm; height: 297mm; display: grid; grid-template-columns: 68mm 1fr; overflow: hidden; font-family: 'Inter', system-ui, sans-serif; font-size: 8.7pt; line-height: 1.45; color: var(--navy); }
+a { color: var(--azul); text-decoration: underline; text-underline-offset: 2px; }
+ul { list-style: none; padding: 0; }
+
+/* ── barra lateral ── */
+.lateral { background: var(--fondo); padding: 13mm 7mm 0 8mm; }
+.foto { display: block; width: 40mm; height: 40mm; margin: 0 auto; border-radius: 50%; object-fit: cover; object-position: 50% 28%; border: 1.2mm solid #fff; outline: 0.35mm solid var(--azul); }
+.lateral h2 { margin: 8.5mm 0 3.2mm; padding-bottom: 1.6mm; border-bottom: 1px solid var(--regla); }
+.lateral h2:first-of-type { margin-top: 8mm; }
+
+h2 { font-family: 'Montserrat', sans-serif; font-size: 7.6pt; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--azul); }
+
+.contacto li { display: flex; align-items: center; gap: 7px; margin-top: 5px; font-size: 8.4pt; word-break: break-all; }
+.contacto svg { flex: none; width: 13px; height: 13px; fill: none; stroke: var(--azul); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+
+.grupo + .grupo { margin-top: 6px; }
+.grupo dt { font-size: 7.4pt; font-weight: 600; letter-spacing: .02em; color: var(--azul); }
+.grupo dd { font-size: 8.3pt; line-height: 1.38; }
+.personales { font-size: 8.3pt; line-height: 1.5; }
+.estudio { margin-top: 2mm; font-size: 8.3pt; }
+
+/* ── columna principal ── */
+.principal { padding: 13mm 14mm 0 11mm; }
+h1 { font-family: 'Montserrat', sans-serif; font-size: 29pt; line-height: 1; font-weight: 700; letter-spacing: -.01em; }
+.rol { margin-top: 3px; font-size: 9.6pt; font-weight: 500; letter-spacing: .02em; color: var(--azul); }
+.principal h2 { margin: 6mm 0 2.4mm; padding-bottom: 1.6mm; border-bottom: 1px solid var(--regla); }
+.principal h2:first-of-type { margin-top: 6mm; }
+.perfil { font-size: 9pt; line-height: 1.55; }
+
+.item + .item { margin-top: 3.1mm; }
+.cabecera { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.titulo { font-size: 9.2pt; font-weight: 600; }
+.fecha { flex: none; font-size: 7.8pt; color: var(--suave); white-space: nowrap; }
+.donde { font-size: 8.3pt; color: var(--suave); }
+.pts { margin-top: 1.4mm; }
+.pts li { position: relative; padding-left: 11px; margin-top: 1px; font-size: 8.4pt; line-height: 1.42; }
+.pts li::before { content: ''; position: absolute; left: 1px; top: .6em; width: 3.4px; height: 3.4px; border-radius: 50%; background: var(--azul); }
+.stack { font-size: 7.8pt; color: var(--suave); }
+.nota { margin-top: 3mm; font-size: 8.3pt; color: var(--suave); }
+</style>
+</head>
+<body>
+
+<aside class="lateral">
+  <img class="foto" src="foto.png" alt="Foto de Facundo Silva">
+
+  <h2>Contacto</h2>
+  <ul class="contacto">
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>facusilva2003@gmail.com</li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg>Guaymallén, Mendoza</li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6"/></svg>23 años</li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg><a href="https://portafolio-omega-opal.vercel.app">Mi portafolio</a></li>
+  </ul>
+
+  <h2>Habilidades técnicas</h2>
+  <dl>
+    <div class="grupo"><dt>Programación</dt><dd>Python, PHP, JavaScript, SQL, Java, <span style="white-space:nowrap">C (básico)</span></dd></div>
+    <div class="grupo"><dt>Frameworks</dt><dd>Django, Laravel, React</dd></div>
+    <div class="grupo"><dt>Bases de datos</dt><dd>MariaDB, SQLite · diseño relacional (3FN)</dd></div>
+    <div class="grupo"><dt>Seguridad</dt><dd>OWASP Top 10, auditoría de código, control de acceso</dd></div>
+    <div class="grupo"><dt>Sistemas y redes</dt><dd>Linux (Kali, Ubuntu Server), Windows, Active Directory, modelo OSI / TCP-IP</dd></div>
+    <div class="grupo"><dt>Herramientas</dt><dd>Git y GitHub (GitFlow), GitHub Actions, Azure, Cloudflare</dd></div>
+    <div class="grupo"><dt>Hardware</dt><dd>Diagnóstico y reparación de celulares</dd></div>
+  </dl>
+  <p class="estudio"><strong style="font-weight:600;color:var(--azul);font-size:7.4pt">En estudio:</strong> redes (nmap, Wireshark) y Java.</p>
+
+  <h2>Personales</h2>
+  <p class="personales">Responsabilidad y compromiso, trabajo en equipo, resolución de problemas, capacidad de aprendizaje, adaptabilidad al cambio, orientación a resultados, proactividad.</p>
+
+  <h2>Idiomas</h2>
+  <p class="personales">Español (nativo) · Inglés (básico)</p>
+</aside>
+
+<main class="principal">
+  <h1>Facundo Silva</h1>
+  <p class="rol">Desarrollo de software · Sistemas y Ciberseguridad</p>
+
+  <h2>Acerca de mí</h2>
+  <p class="perfil">Soy una persona proactiva y con muchas ganas de aprender. Estudio Sistemas de Información y Ciberseguridad, y me gusta entender cómo funcionan las cosas para poder construirlas bien. Además de estudiar, trabajo como técnico en reparación de celulares y desarrollé un sistema que hoy se usa todos los días.</p>
+
+  <h2>Educación</h2>
+  <div class="item"><div class="cabecera"><p class="titulo">Licenciatura en Sistemas de Información</p><p class="fecha">2025 – en curso</p></div><p class="donde">Universidad Champagnat</p></div>
+  <div class="item"><div class="cabecera"><p class="titulo">Licenciatura en Ciberseguridad</p><p class="fecha">2026 – en curso</p></div><p class="donde">UNDEF</p></div>
+  <div class="item"><div class="cabecera"><p class="titulo">Técnico Electricista</p><p class="fecha">2016 – 2022</p></div><p class="donde">Secundario Técnico Completo · Ing. Pablo Nogues</p></div>
+
+  <h2>Experiencia</h2>
+  <div class="item">
+    <div class="cabecera"><p class="titulo">Técnico en reparación de celulares</p><p class="fecha">2022 – actualidad</p></div>
+    <p class="donde">Técnico independiente</p>
+    <ul class="pts">
+      <li>Diagnóstico y reparación de celulares (hardware).</li>
+      <li>Cambio de módulos, baterías y componentes internos.</li>
+      <li>Atención al cliente y gestión de reparaciones.</li>
+      <li>Control básico de stock de equipos y repuestos.</li>
+    </ul>
+  </div>
+  <div class="item">
+    <div class="cabecera"><p class="titulo">Pasantía</p><p class="fecha">Abril – junio 2022</p></div>
+    <p class="donde">Bymovil (Servicio Técnico)</p>
+    <ul class="pts">
+      <li>Emisión de facturas, notas de débito y crédito.</li>
+      <li>Revisión, control e imputación de facturas de proveedores nacionales e internacionales.</li>
+      <li>Provisión, contabilización y auditoría de operaciones.</li>
+      <li>Gestión de reclamos y pagos en cuentas corrientes de clientes.</li>
+      <li>Seguimiento bancario y coordinación de pagos a proveedores.</li>
+    </ul>
+  </div>
+
+  <h2>Proyectos</h2>
+  <div class="item">
+    <div class="cabecera"><p class="titulo">Sistema de Préstamos</p><p class="fecha">En producción</p></div>
+    <p class="stack">Django · SQLite · Azure · Cloudflare</p>
+    <ul class="pts"><li>Sistema para gestionar préstamos y cuotas, en uso todos los días. Acceso restringido, copias de seguridad cifradas y pruebas automáticas antes de cada publicación.</li></ul>
+  </div>
+  <div class="item">
+    <div class="cabecera"><p class="titulo">LogiTrack</p></div>
+    <p class="stack">PHP · MariaDB</p>
+    <ul class="pts"><li>Sistema de logística con cuatro tipos de usuario y una base de datos de 19 tablas.</li></ul>
+  </div>
+  <div class="item">
+    <div class="cabecera"><p class="titulo">DeleitarTE</p><p class="fecha">En desarrollo</p></div>
+    <p class="stack">Laravel · React · MariaDB</p>
+    <ul class="pts"><li>Sistema de reservas para un emprendimiento real de tardes de té en Mendoza.</li></ul>
+  </div>
+  <p class="nota">El detalle de cada proyecto está en <a href="https://portafolio-omega-opal.vercel.app">mi portafolio</a>.</p>
+</main>
+
+</body>
+</html>

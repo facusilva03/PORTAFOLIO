@@ -11,6 +11,7 @@ Portafolio profesional de Facundo Silva, estudiante de Sistemas y Ciberseguridad
 - Instalar: `npm install` (`node_modules` no viaja al re-clonar). `.nvmrc` pide Node 18; acá corre Node 24.
 - `npm run dev` (:5173) · `npm run build` · `npm run preview` · `npm run lint`.
 - No hay framework de tests. La verificación es lint + build + manejar el sitio en un navegador real.
+- **CV:** el fuente es `cv/cv.html` y el PDF público es `public/cv-facundo-silva.pdf` (lo descargan el botón del Hero y el comando `cv` de la terminal). Para regenerarlo: `./cv/generar.sh` (necesita chromium, exiftool y mutool; además limpia los metadatos del navegador). Dos columnas (barra lateral clara con foto + columna principal), diseño propio. Tiene que seguir entrando en **una página**, no lleva teléfono (este PDF es público) y el único enlace es "Mi portafolio": sin GitHub ni LinkedIn, por decisión suya. Lleva la edad (23) y la foto (`cv/foto.png`). El "Acerca de mí" va en tono personal (proactivo, con ganas de aprender) y sin jerga: también se usa para trabajos locales presenciales. Se probaron y descartaron: una columna tipo Harvard y la línea de tiempo de puntos del CV viejo.
 - Navegador para probar (verificado en esta máquina): **Selenium** con `/usr/bin/chromium` y `/usr/bin/chromedriver`, en modo headless. El paquete de Playwright está roto (le falta el driver).
 - Para frenar el dev server usar `kill <pid>`, nunca `pkill -f vite` (mata la shell de la sesión).
 - Al probar el formulario, **reemplazar `window.fetch`** antes de enviar: las claves reales de EmailJS están en `.env` y un envío de prueba mandaría un mail de verdad.
@@ -36,6 +37,7 @@ Una sola página sin router. `src/App.jsx` arma `Nav`, las secciones (`Hero, Abo
 
 ## Reglas de contenido
 
+- **Skills solo con evidencia.** PostgreSQL y Go salieron por no tener nada detrás; GitFlow se queda porque DeleitarTE tiene `develop`, `feature/*`, `hotfix/*` y `release/*`. Lo que solo se estudió (nmap, Wireshark) va como "en estudio", no como habilidad.
 - Toda tecnología, logro o cifra tiene que poder señalarse en un repo real. Nada inventado: ni métricas, ni "disponible", ni tiempos de respuesta. Lo que no tiene respaldo se saca.
 - Antes de editar About, Works, Skills o la terminal, **verificar la afirmación contra el código** (skill `verificar-afirmaciones`). Ya se corrigieron así: "un trigger" (son dos), "sin JavaScript" (hay un mapa con Leaflet) y un procedimiento que decía hacer algo que no hacía.
 - Repo privado → `github: null` y el motivo en `caso.repoNota`. Verificar visibilidad (`gh repo view`) antes de linkear.
@@ -49,7 +51,7 @@ Una sola página sin router. `src/App.jsx` arma `Nav`, las secciones (`Hero, Abo
 ## No se toca sin que lo pida
 
 - `.env` y sus claves.
-- El teléfono personal: no vuelve al sitio.
+- El teléfono personal: no vuelve al sitio **ni al CV público**. (El CV viejo, con teléfono, quedó en el historial de git; ver el commit que lo reemplazó.)
 - Los textos de los casos de estudio: se editan con evidencia, no por estética.
 
 ## Pendientes conocidos
