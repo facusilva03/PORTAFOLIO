@@ -3,17 +3,10 @@ import Seccion from '../components/Seccion';
 import Reveal from '../components/Reveal';
 import FlowDiagram from '../components/FlowDiagram';
 import { WORKS } from '../data/works';
+import FlowCards from '../components/FlowCards';
 import { DIAGRAMAS } from '../data/diagramas';
+import resolverRef from '../data/resolverRef';
 import styles from './Works.module.css';
-
-/* Un ref apunta a una decisión (dN), un obstáculo (oN) o al estado del caso. */
-function resolverRef(caso, ref) {
-    if (ref === 'estado') return { tipo: 'Estado', t: 'Dónde está hoy', d: caso.estado };
-    const i = Number(ref.slice(1));
-    return ref[0] === 'd'
-        ? { tipo: 'Decisión', ...caso.decisiones[i] }
-        : { tipo: 'Obstáculo', ...caso.obstaculos[i] };
-}
 
 const Works = () => {
     // Guardamos el proyecto y el nodo tocado. Si cambia el proyecto, el nodo
@@ -52,7 +45,16 @@ const Works = () => {
                         aria-controls="panel-proyecto"
                         tabIndex={w.id === proyecto.id ? 0 : -1}
                         className={styles.tab}
-                        onClick={() => setSel({ proyecto: w.id, nodo: null })}
+                        onClick={(e) => {
+                            setSel({ proyecto: w.id, nodo: null });
+                            // En el teléfono las pestañas son una tira que se desliza:
+                            // la elegida se centra para no quedar cortada.
+                            e.currentTarget.scrollIntoView({
+                                block: 'nearest',
+                                inline: 'center',
+                                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+                            });
+                        }}
                     >
                         <small>{w.id}</small>
                         {w.title}
@@ -123,6 +125,10 @@ const Works = () => {
                             ))}
                         </aside>
                     </div>
+
+                    {/* En el teléfono el diagrama se reemplaza por tarjetas que se
+                        deslizan: el CSS decide cuál de los dos se ve. */}
+                    <FlowCards diagrama={diagrama} caso={proyecto.caso} nombre={proyecto.title} />
 
                     {proyecto.caso.repoNota && <p className={styles.repoNota}>{proyecto.caso.repoNota}</p>}
                 </div>

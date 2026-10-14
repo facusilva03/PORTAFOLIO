@@ -85,3 +85,23 @@
         gap: 40px;
     }
 }
+
+@media (max-width: 640px) {
+    .texto {
+        gap: 14px;
+        font-size: 16.5px;
+        line-height: 1.65;
+    }
+
+    .lateral {
+        gap: 28px;
+    }
+
+    .formacion li {
+        padding: 12px 0;
+    }
+
+    .formacion p {
+        font-size: 14px;
+    }
+}
