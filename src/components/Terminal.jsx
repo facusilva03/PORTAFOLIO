@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './Terminal.module.css';
+import { SKILLS, PROYECTOS, EN_ESTUDIO } from '../data/skills';
 
 /*
   Terminal del Hero. Primero corre una intro animada; cuando termina, queda
@@ -43,6 +44,40 @@ const LINEAS = [
 const SECCIONES = ['about', 'skills', 'works', 'now', 'contact'];
 
 /*
+  Árbol de skills para el comando `skills`. Lee de src/data/skills.js, la misma
+  fuente que la sección Skills: lo que dice la terminal y lo que dice la página
+  no se pueden contradecir.
+*/
+const GRUPOS_SKILLS = [
+    ...[...new Set(SKILLS.map((s) => s.area))].map((area) => ({
+        clave: area,
+        filas: SKILLS.filter((s) => s.area === area).map((s) => [s.name, dondeSeUso(s.uso)]),
+    })),
+    { clave: 'en estudio', filas: EN_ESTUDIO.map((nombre) => [nombre, '']) },
+];
+
+function dondeSeUso(uso) {
+    if (uso === 'F') return 'facultad';
+    return [...uso].map((letra) => PROYECTOS[letra].toLowerCase()).join(' · ');
+}
+
+/* Una rama del árbol por skill; la última cierra con └──. */
+function ramas(titulo, filas) {
+    return [
+        { texto: titulo },
+        ...filas.map(([nombre, donde], i) => ({
+            texto: `${i === filas.length - 1 ? '└──' : '├──'} ${nombre.toLowerCase()}`,
+            // Espacio sin corte tras el #: en el teléfono el renglón no puede quedar
+            // partido justo ahí, con el # solo al final y el texto abajo.
+            comentario: donde ? `#\u00a0${donde}` : undefined,
+        })),
+    ];
+}
+
+/* `skills bases` encuentra "bases de datos": se compara con el inicio de cada palabra. */
+const coincide = (clave, filtro) => clave.split(' ').some((palabra) => palabra.startsWith(filtro));
+
+/*
   Cada comando devuelve las líneas a imprimir y, si hace falta, una acción
   con efecto fuera de la terminal (scrollear, descargar). Mantener el efecto
   separado de la salida hace que agregar un comando no implique tocar el
@@ -82,6 +117,38 @@ const COMANDOS = {
                 { texto: 'sistemas  linux · active directory · redes · azure · cloudflare', tenue: true },
             ],
         }),
+    },
+    skills: {
+        descripcion: 'con qué trabajo, y dónde lo usé',
+        correr: (args) => {
+            const filtro = (args[0] || '').toLowerCase();
+            const claves = GRUPOS_SKILLS.map((g) => g.clave.split(' ').pop());
+            const elegidos = filtro ? GRUPOS_SKILLS.filter((g) => coincide(g.clave, filtro)) : GRUPOS_SKILLS;
+
+            if (!elegidos.length) {
+                return {
+                    lineas: [
+                        { texto: `área desconocida: ${filtro}`, error: true },
+                        { texto: `áreas: ${claves.join(' · ')}`, tenue: true },
+                    ],
+                };
+            }
+
+            const lineas = elegidos.flatMap((g, i) => [
+                ...(i ? [{ texto: '' }] : []),
+                ...ramas(g.clave, g.filas),
+            ]);
+            if (!filtro) {
+                // Las opciones van separadas por espacios y no por "|": una palabra
+                // larga sin espacios no se puede partir y ensancha la terminal en el teléfono.
+                lineas.push(
+                    { texto: '' },
+                    { texto: 'una sola área · probá: skills seguridad', tenue: true },
+                    { texto: `áreas: ${claves.join(' · ')}`, tenue: true },
+                );
+            }
+            return { lineas };
+        },
     },
     projects: {
         descripcion: 'qué construí',

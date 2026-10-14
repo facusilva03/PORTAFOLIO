@@ -5,6 +5,8 @@
     uso  Proyectos donde se usó, con una letra por proyecto (ver PROYECTOS),
          o 'F' si solo apareció en un entregable de la facultad.
     featured  "mayor dominio actual": solo donde hay algo concreto detrás.
+    area      Solo la usa el comando `skills` de la terminal para agrupar el árbol
+              (lenguajes, bases de datos, sistemas, seguridad).
 
   REGLA: nada entra sin respaldo. PostgreSQL, Go, Node.js y TypeScript no
   están porque no hay nada hecho con ellos. C, Wireshark, tcpdump, nmap y el
@@ -23,30 +25,30 @@ export const PROYECTOS = {
 
 export const SKILLS = [
     // Lenguajes
-    { name: 'JavaScript / React', featured: true, uso: 'DW' },
-    { name: 'Python / Django', featured: true, uso: 'P' },
-    { name: 'PHP / Laravel', featured: true, uso: 'LD' },
-    { name: 'SQL', featured: false, uso: 'L' },
-    { name: 'HTML / CSS', featured: false, uso: 'DW' },
-    { name: 'Java', featured: false, uso: 'F' },
+    { name: 'JavaScript / React', area: 'lenguajes', featured: true, uso: 'DW' },
+    { name: 'Python / Django', area: 'lenguajes', featured: true, uso: 'P' },
+    { name: 'PHP / Laravel', area: 'lenguajes', featured: true, uso: 'LD' },
+    { name: 'SQL', area: 'lenguajes', featured: false, uso: 'L' },
+    { name: 'HTML / CSS', area: 'lenguajes', featured: false, uso: 'DW' },
+    { name: 'Java', area: 'lenguajes', featured: false, uso: 'F' },
     // Bases de datos
-    { name: 'Diseño relacional (3FN)', featured: true, uso: 'L' },
-    { name: 'Triggers y procedimientos', featured: true, uso: 'L' },
-    { name: 'Transacciones e integridad', featured: false, uso: 'L' },
-    { name: 'MariaDB · SQLite', featured: false, uso: 'PLD' },
+    { name: 'Diseño relacional (3FN)', area: 'bases de datos', featured: true, uso: 'L' },
+    { name: 'Triggers y procedimientos', area: 'bases de datos', featured: true, uso: 'L' },
+    { name: 'Transacciones e integridad', area: 'bases de datos', featured: false, uso: 'L' },
+    { name: 'MariaDB · SQLite', area: 'bases de datos', featured: false, uso: 'PLD' },
     // Sistemas e infraestructura
-    { name: 'Linux (Kali · Ubuntu Server)', featured: true, uso: 'F' },
-    { name: 'Active Directory', featured: true, uso: 'F' },
-    { name: 'Servicios de red (FTP · Apache · Squid)', featured: false, uso: 'F' },
-    { name: 'Modelo OSI / TCP-IP', featured: true, uso: 'F' },
-    { name: 'Virtualización', featured: false, uso: 'F' },
-    { name: 'Azure · Cloudflare', featured: false, uso: 'P' },
-    { name: 'Git · CI/CD', featured: false, uso: 'PDW' },
+    { name: 'Linux (Kali · Ubuntu Server)', area: 'sistemas', featured: true, uso: 'F' },
+    { name: 'Active Directory', area: 'sistemas', featured: true, uso: 'F' },
+    { name: 'Servicios de red (FTP · Apache · Squid)', area: 'sistemas', featured: false, uso: 'F' },
+    { name: 'Modelo OSI / TCP-IP', area: 'sistemas', featured: true, uso: 'F' },
+    { name: 'Virtualización', area: 'sistemas', featured: false, uso: 'F' },
+    { name: 'Azure · Cloudflare', area: 'sistemas', featured: false, uso: 'P' },
+    { name: 'Git · CI/CD', area: 'sistemas', featured: false, uso: 'PDW' },
     // Seguridad
-    { name: 'OWASP Top 10 aplicado', featured: true, uso: 'P' },
-    { name: 'Auditoría de código', featured: false, uso: 'P' },
-    { name: 'Control de acceso y autenticación', featured: false, uso: 'PL' },
-    { name: 'Despliegue seguro y respaldos', featured: false, uso: 'P' },
+    { name: 'OWASP Top 10 aplicado', area: 'seguridad', featured: true, uso: 'P' },
+    { name: 'Auditoría de código', area: 'seguridad', featured: false, uso: 'P' },
+    { name: 'Control de acceso y autenticación', area: 'seguridad', featured: false, uso: 'PL' },
+    { name: 'Despliegue seguro y respaldos', area: 'seguridad', featured: false, uso: 'P' },
 ];
 
 /* Estudiado, sin un solo proyecto que lo use todavía. */
