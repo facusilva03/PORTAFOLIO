@@ -18,7 +18,7 @@ const Hero = () => (
     <section id="home" className={styles.hero}>
         <div className={styles.contenedor}>
             <div>
-                <p className={styles.eyebrow}>Software Developer focused on Systems &amp; Security</p>
+                <p className={styles.eyebrow}>Estudiante de Sistemas y Ciberseguridad</p>
 
                 <h1 className={styles.nombre} aria-label="Facundo Silva">
                     <Nombre texto="FACUNDO" />
@@ -27,7 +27,7 @@ const Hero = () => (
 
                 <p className={styles.lead}>
                     Estudio Sistemas y Ciberseguridad. Tengo un sistema de préstamos{' '}
-                    <b>en producción</b> y <b>audito mi propio código</b>.
+                    <b>en producción</b> y <b>reviso y pruebo mi propio código</b>.
                 </p>
 
                 <div className={styles.acciones}>

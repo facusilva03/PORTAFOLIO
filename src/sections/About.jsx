@@ -9,11 +9,11 @@ const ESTUDIOS = [
 ];
 
 const About = () => (
-    <Seccion id="about" eyebrow="01 · Quién soy" titulo="Construir sistemas entendiendo cómo pueden romperse.">
+    <Seccion id="about" eyebrow="01 · Quién soy" titulo="Estudio sistemas y me gusta construir cosas que funcionen.">
         <div className={styles.columnas}>
             <Reveal className={styles.texto} retraso={0.16}>
-                <p>Soy estudiante de Sistemas y Ciberseguridad, enfocado en el desarrollo de aplicaciones backend y el diseño de sistemas seguros.</p>
-                <p>Me interesa entender cómo funcionan los sistemas en profundidad, cómo se construyen y cómo pueden ser vulnerados, para luego diseñarlos de forma más robusta.</p>
+                <p>Soy estudiante de Sistemas y Ciberseguridad. Soy una persona proactiva y con muchas ganas de aprender.</p>
+                <p>Me gusta entender cómo funcionan las cosas, y también cómo pueden fallar, para poder armarlas mejor. Por eso, cuando hago un proyecto, lo reviso y lo pruebo antes de darlo por terminado.</p>
                 {/* Lo que se afirma acá tiene que coincidir con lo que muestran
                     los proyectos: son Django y Laravel, no Node. */}
                 <p>Hoy trabajo con Python y Django —tengo un sistema en producción, en uso diario— y con PHP y Laravel, siempre sobre bases de datos relacionales. En paralelo estoy profundizando en Java.</p>

@@ -69,6 +69,37 @@ const FlowCards = ({ diagrama, caso, nombre }) => {
 
     return (
         <div className={styles.cartas}>
+            {/* Los controles van ARRIBA de las tarjetas: las tarjetas tienen
+                alturas muy distintas, y si estuvieran debajo subirían y
+                bajarían con cada paso. Arriba quedan siempre en el mismo lugar. */}
+            <div className={styles.controles}>
+                <button
+                    type="button"
+                    className={styles.flecha}
+                    onClick={() => ir(activa - 1)}
+                    disabled={activa === 0}
+                    aria-label="Paso anterior"
+                >
+                    ←
+                </button>
+
+                <div className={styles.puntos} aria-hidden="true">
+                    {diagrama.nodos.map((n, i) => (
+                        <span key={n.id} className={i === activa ? styles.puntoActivo : styles.punto} />
+                    ))}
+                </div>
+
+                <button
+                    type="button"
+                    className={styles.flecha}
+                    onClick={() => ir(activa + 1)}
+                    disabled={activa === total - 1}
+                    aria-label="Paso siguiente"
+                >
+                    →
+                </button>
+            </div>
+
             <div
                 ref={pista}
                 className={styles.pista}
@@ -103,34 +134,6 @@ const FlowCards = ({ diagrama, caso, nombre }) => {
                         })}
                     </article>
                 ))}
-            </div>
-
-            <div className={styles.controles}>
-                <button
-                    type="button"
-                    className={styles.flecha}
-                    onClick={() => ir(activa - 1)}
-                    disabled={activa === 0}
-                    aria-label="Paso anterior"
-                >
-                    ←
-                </button>
-
-                <div className={styles.puntos} aria-hidden="true">
-                    {diagrama.nodos.map((n, i) => (
-                        <span key={n.id} className={i === activa ? styles.puntoActivo : styles.punto} />
-                    ))}
-                </div>
-
-                <button
-                    type="button"
-                    className={styles.flecha}
-                    onClick={() => ir(activa + 1)}
-                    disabled={activa === total - 1}
-                    aria-label="Paso siguiente"
-                >
-                    →
-                </button>
             </div>
         </div>
     );
