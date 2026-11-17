@@ -3,15 +3,16 @@
   nociones básicas) no es una autoevaluación: sale de la evidencia que hay detrás.
 
     uso  Proyectos donde se usó, con una letra por proyecto (ver PROYECTOS),
-         o 'F' si solo apareció en la facultad (en ese caso `cursada` dice en
-         qué materia o trabajo práctico).
+         'N' si es de uso diario en su notebook, o 'F' si solo apareció en la
+         facultad (en ese caso `cursada` dice en qué materia o trabajo práctico).
     featured  "mayor dominio actual": solo donde hay algo concreto detrás.
     area      Solo la usa el comando `skills` de la terminal para agrupar el árbol
               (lenguajes, bases de datos, sistemas, redes, seguridad).
 
   REGLA: nada entra sin respaldo, y menos es más: la lista se recortó a lo que
   se puede señalar en un proyecto o una materia (sin HTML/CSS ni SQL sueltos,
-  sin "Virtualización" ni "OWASP Top 10", que no tenían nada detrás). Las
+  sin "Virtualización" ni "OWASP Top 10", que no tenían nada detrás, y sin
+  "Despliegue seguro y respaldos", que fue con ayuda de IA). Las
   destacadas son pocas a propósito. Azure y Cloudflare no figuran como skill:
   el Sistema de Préstamos corre ahí, pero Facu lo desplegó con ayuda de IA y
   todavía no los maneja a fondo (decisión del 2026-11-17). PostgreSQL, Go, Node.js y TypeScript no
@@ -30,6 +31,9 @@ export const PROYECTOS = {
     L: 'LogiTrack',
     D: 'DeleitarTE',
     W: 'Portafolio',
+    // No es un proyecto: es uso diario fuera de la facultad (Kali Linux es el
+    // sistema principal de su notebook). Cuenta como "en uso real".
+    N: 'Mi notebook',
 };
 
 export const SKILLS = [
@@ -42,7 +46,7 @@ export const SKILLS = [
     { name: 'Diseño relacional y triggers', area: 'bases de datos', featured: true, uso: 'L' },
     { name: 'SQL (MariaDB · SQLite)', area: 'bases de datos', featured: false, uso: 'PLD' },
     // Sistemas e infraestructura
-    { name: 'Linux (Kali · Ubuntu Server)', area: 'sistemas', featured: false, uso: 'F', cursada: 'Sistemas Operativos II' },
+    { name: 'Linux (Kali · Ubuntu Server)', area: 'sistemas', featured: false, uso: 'N' },
     { name: 'Active Directory', area: 'sistemas', featured: false, uso: 'F', cursada: 'Sistemas Operativos II' },
     { name: 'Servicios de red (FTP · Apache · Squid)', area: 'sistemas', featured: false, uso: 'F', cursada: 'Sistemas Operativos II' },
     { name: 'Git · CI/CD', area: 'sistemas', featured: false, uso: 'PDW' },
@@ -52,7 +56,6 @@ export const SKILLS = [
     // Seguridad
     { name: 'Control de acceso y autenticación', area: 'seguridad', featured: true, uso: 'PL' },
     { name: 'Revisión y pruebas del código', area: 'seguridad', featured: false, uso: 'P' },
-    { name: 'Despliegue seguro y respaldos', area: 'seguridad', featured: false, uso: 'P' },
 ];
 
 /* Conocimientos básicos, sin un solo proyecto que los use todavía. */

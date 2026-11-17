@@ -6,7 +6,7 @@ import styles from './skills.module.css';
 /* El nivel de cada skill sale de la evidencia, no de una autoevaluación:
    con proyecto detrás, solo de un entregable de la facultad, o apenas
    nociones básicas. Ver el criterio en src/data/skills.js. */
-const enUsoReal = SKILLS.filter((s) => /[PLDW]/.test(s.uso));
+const enUsoReal = SKILLS.filter((s) => /[PLDWN]/.test(s.uso));
 const deLaCursada = SKILLS.filter((s) => s.uso === 'F');
 
 const dondeSeUso = (uso) => [...uso].map((letra) => PROYECTOS[letra]).join(' · ');
@@ -44,7 +44,7 @@ const Texto = ({ items }) => (
 const Skills = () => (
     <Seccion id="skills" eyebrow="02 · Lo que sé hacer" titulo="Lo que uso, y dónde lo usé.">
         <div className={styles.niveles}>
-            <Nivel titulo="En uso real" detalle="Con un proyecto que se puede abrir">
+            <Nivel titulo="En uso real" detalle="Con un proyecto, o de uso diario">
                 <Lista skills={enUsoReal} detalle={(s) => dondeSeUso(s.uso)} />
             </Nivel>
 
