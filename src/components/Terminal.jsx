@@ -116,7 +116,7 @@ const COMANDOS = {
             lineas: [
                 { texto: 'en uso    python/django · php/laravel · javascript/react' },
                 { texto: 'cursando  sql · java · c', tenue: true },
-                { texto: 'sistemas  linux · active directory · redes · azure · cloudflare', tenue: true },
+                { texto: 'sistemas  linux · active directory · redes', tenue: true },
             ],
         }),
     },

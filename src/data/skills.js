@@ -9,7 +9,12 @@
     area      Solo la usa el comando `skills` de la terminal para agrupar el árbol
               (lenguajes, bases de datos, sistemas, redes, seguridad).
 
-  REGLA: nada entra sin respaldo. PostgreSQL, Go, Node.js y TypeScript no
+  REGLA: nada entra sin respaldo, y menos es más: la lista se recortó a lo que
+  se puede señalar en un proyecto o una materia (sin HTML/CSS ni SQL sueltos,
+  sin "Virtualización" ni "OWASP Top 10", que no tenían nada detrás). Las
+  destacadas son pocas a propósito. Azure y Cloudflare no figuran como skill:
+  el Sistema de Préstamos corre ahí, pero Facu lo desplegó con ayuda de IA y
+  todavía no los maneja a fondo (decisión del 2026-11-17). PostgreSQL, Go, Node.js y TypeScript no
   están porque no hay nada hecho con ellos. Wireshark, tcpdump y nmap tampoco:
   no se usaron en ningún proyecto ni se están viendo, así que no figuran en
   ningún lado (ni siquiera como "en estudio"). En cambio el direccionamiento
@@ -29,32 +34,24 @@ export const PROYECTOS = {
 
 export const SKILLS = [
     // Lenguajes
-    { name: 'JavaScript / React', area: 'lenguajes', featured: true, uso: 'DW' },
     { name: 'Python / Django', area: 'lenguajes', featured: true, uso: 'P' },
     { name: 'PHP / Laravel', area: 'lenguajes', featured: true, uso: 'LD' },
-    { name: 'SQL', area: 'lenguajes', featured: false, uso: 'L' },
-    { name: 'HTML / CSS', area: 'lenguajes', featured: false, uso: 'DW' },
+    { name: 'JavaScript / React', area: 'lenguajes', featured: false, uso: 'DW' },
     { name: 'Java', area: 'lenguajes', featured: false, uso: 'F', cursada: 'TP de POO' },
     // Bases de datos
-    { name: 'Diseño relacional (3FN)', area: 'bases de datos', featured: true, uso: 'L' },
-    { name: 'Triggers y procedimientos', area: 'bases de datos', featured: true, uso: 'L' },
-    { name: 'Transacciones e integridad', area: 'bases de datos', featured: false, uso: 'L' },
-    { name: 'MariaDB · SQLite', area: 'bases de datos', featured: false, uso: 'PLD' },
+    { name: 'Diseño relacional y triggers', area: 'bases de datos', featured: true, uso: 'L' },
+    { name: 'SQL (MariaDB · SQLite)', area: 'bases de datos', featured: false, uso: 'PLD' },
     // Sistemas e infraestructura
-    { name: 'Linux (Kali · Ubuntu Server)', area: 'sistemas', featured: true, uso: 'F', cursada: 'Sistemas Operativos II' },
-    { name: 'Active Directory', area: 'sistemas', featured: true, uso: 'F', cursada: 'Sistemas Operativos II' },
+    { name: 'Linux (Kali · Ubuntu Server)', area: 'sistemas', featured: false, uso: 'F', cursada: 'Sistemas Operativos II' },
+    { name: 'Active Directory', area: 'sistemas', featured: false, uso: 'F', cursada: 'Sistemas Operativos II' },
     { name: 'Servicios de red (FTP · Apache · Squid)', area: 'sistemas', featured: false, uso: 'F', cursada: 'Sistemas Operativos II' },
-    { name: 'Virtualización', area: 'sistemas', featured: false, uso: 'F', cursada: 'Sistemas Operativos II' },
-    { name: 'Azure · Cloudflare', area: 'sistemas', featured: false, uso: 'P' },
     { name: 'Git · CI/CD', area: 'sistemas', featured: false, uso: 'PDW' },
     // Redes: lo que se cursa en Redes I (facultad)
-    { name: 'Modelo OSI / TCP-IP', area: 'redes', featured: true, uso: 'F', cursada: 'Redes I' },
-    { name: 'Direccionamiento IP, subredes y máscaras', area: 'redes', featured: false, uso: 'F', cursada: 'Redes I' },
-    { name: 'DHCP', area: 'redes', featured: false, uso: 'F', cursada: 'Redes I' },
+    { name: 'Modelo OSI / TCP-IP', area: 'redes', featured: false, uso: 'F', cursada: 'Redes I' },
+    { name: 'IP, subredes, máscaras y DHCP', area: 'redes', featured: false, uso: 'F', cursada: 'Redes I' },
     // Seguridad
-    { name: 'OWASP Top 10 aplicado', area: 'seguridad', featured: true, uso: 'P' },
-    { name: 'Auditoría de código', area: 'seguridad', featured: false, uso: 'P' },
-    { name: 'Control de acceso y autenticación', area: 'seguridad', featured: false, uso: 'PL' },
+    { name: 'Control de acceso y autenticación', area: 'seguridad', featured: true, uso: 'PL' },
+    { name: 'Revisión y pruebas del código', area: 'seguridad', featured: false, uso: 'P' },
     { name: 'Despliegue seguro y respaldos', area: 'seguridad', featured: false, uso: 'P' },
 ];
 

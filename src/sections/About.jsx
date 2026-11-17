@@ -17,6 +17,7 @@ const About = () => (
                 {/* Lo que se afirma acá tiene que coincidir con lo que muestran
                     los proyectos: son Django y Laravel, no Node. */}
                 <p>Hoy trabajo con Python y Django —tengo un sistema en producción, en uso diario— y con PHP y Laravel, siempre sobre bases de datos relacionales. En paralelo estoy profundizando en Java.</p>
+                <p>También me gusta el lado práctico de los equipos: sé armar una PC, instalar el sistema operativo y resolver cosas de Windows.</p>
             </Reveal>
 
             <Reveal as="aside" className={styles.lateral} retraso={0.24}>
