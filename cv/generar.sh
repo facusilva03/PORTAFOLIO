@@ -10,6 +10,17 @@
 set -eu
 cd "$(dirname "$0")/.."
 
+# GUARDA (2026-11-17): public/cv-facundo-silva.pdf es el CV de soporte técnico
+# que Facu eligió y quedó FIJO. cv/cv.html es el diseño anterior y ya no
+# coincide con ese PDF: correr este script lo pisaría con la versión vieja.
+# Para regenerar a propósito: FORZAR=1 ./cv/generar.sh (primero hay que pasar
+# el contenido del PDF actual a cv/cv.html).
+if [ "${FORZAR:-}" != "1" ]; then
+    echo "public/cv-facundo-silva.pdf está fijo y cv/cv.html quedó desactualizado." >&2
+    echo "Si de verdad querés regenerarlo: FORZAR=1 ./cv/generar.sh" >&2
+    exit 1
+fi
+
 for cmd in chromium exiftool mutool; do
     command -v "$cmd" >/dev/null || { echo "Falta $cmd" >&2; exit 1; }
 done
