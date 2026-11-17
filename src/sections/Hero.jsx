@@ -34,8 +34,9 @@ const Hero = () => (
                     <a href="#contact" className={`${styles.boton} ${styles.principal}`}>
                         Contacto <span aria-hidden="true">→</span>
                     </a>
-                    <a href="/cv-facundo-silva.pdf" download className={styles.boton}>
-                        Descargar CV
+                    {/* Abre el CV como página (con su botón para bajar el PDF), no lo descarga. */}
+                    <a href="/cv.html" target="_blank" rel="noopener" className={styles.boton}>
+                        Ver CV
                     </a>
                 </div>
 

@@ -81,7 +81,7 @@ const coincide = (clave, filtro) => clave.split(' ').some((palabra) => palabra.s
 
 /*
   Cada comando devuelve las líneas a imprimir y, si hace falta, una acción
-  con efecto fuera de la terminal (scrollear, descargar). Mantener el efecto
+  con efecto fuera de la terminal (scrollear, abrir una página). Mantener el efecto
   separado de la salida hace que agregar un comando no implique tocar el
   render.
 */
@@ -190,10 +190,10 @@ const COMANDOS = {
         }),
     },
     cv: {
-        descripcion: 'descargar el cv',
+        descripcion: 'ver el cv',
         correr: () => ({
-            lineas: [{ texto: 'descargando cv-facundo-silva.pdf…', destacado: true }],
-            accion: { tipo: 'descargar', valor: '/cv-facundo-silva.pdf' },
+            lineas: [{ texto: 'abriendo el cv en otra pestaña…', destacado: true }],
+            accion: { tipo: 'abrir', valor: '/cv.html' },
         }),
     },
     goto: {
@@ -337,12 +337,9 @@ const Terminal = () => {
         if (accion?.tipo === 'ir') {
             document.getElementById(accion.valor)?.scrollIntoView({ behavior: 'smooth' });
         }
-        if (accion?.tipo === 'descargar') {
-            // Un <a> temporal evita abrir una pestaña y respeta el atributo download.
-            const enlace = document.createElement('a');
-            enlace.href = accion.valor;
-            enlace.download = '';
-            enlace.click();
+        if (accion?.tipo === 'abrir') {
+            // noopener: la página nueva no recibe referencia a esta ventana.
+            window.open(accion.valor, '_blank', 'noopener');
         }
     };
 
